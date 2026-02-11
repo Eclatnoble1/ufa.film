@@ -1,0 +1,723 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UFA FILM | Produção Audiovisual de Alto Padrão</title>
+    <meta name="description" content="UFA FILM - Produção Audiovisual de Alto Padrão. Cinema, Drone, Comerciais e Eventos filmados em 6K Open Gate.">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Orbitron:wght@400;500;700;900&display=swap" rel="stylesheet">
+    
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        :root {
+            --bg-color: #050505;
+            --surface-color: #0a0a0a;
+            --primary-color: #00f3ff;
+            --secondary-color: #D4AF37;
+            --text-main: #ffffff;
+            --text-gray: #a0a0a0;
+            --text-muted: #666666;
+            --glass-border: rgba(255, 255, 255, 0.08);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            overflow-x: hidden;
+            line-height: 1.7;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Orbitron', sans-serif;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: var(--text-main);
+        }
+
+        a { text-decoration: none; color: inherit; }
+        ul { list-style: none; }
+
+        /* Preloader */
+        #preloader {
+            position: fixed; inset: 0; background: var(--bg-color);
+            z-index: 10000; display: flex; flex-direction: column;
+            align-items: center; justify-content: center; gap: 2rem;
+        }
+        .preloader-text {
+            font-size: 0.75rem; color: var(--text-muted);
+            text-transform: uppercase; letter-spacing: 0.4em;
+            opacity: 0; transform: translateY(20px);
+        }
+        .preloader-logo {
+            font-family: 'Orbitron', sans-serif; font-size: 3.5rem; font-weight: 900;
+            background: linear-gradient(90deg, #ffffff, var(--secondary-color));
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+            letter-spacing: 0.3em; opacity: 0; transform: scale(0.8);
+        }
+        .preloader-bar { width: 250px; height: 3px; background: var(--glass-border); overflow: hidden; border-radius: 2px; }
+        .preloader-progress { width: 0%; height: 100%; background: linear-gradient(90deg, var(--secondary-color), var(--primary-color)); }
+
+        /* Navigation */
+        nav {
+            position: fixed; top: 0; width: 100%; padding: 1.5rem 5%;
+            display: flex; justify-content: space-between; align-items: center;
+            z-index: 1000; transition: all 0.4s ease;
+        }
+        nav.scrolled {
+            background: rgba(10, 10, 10, 0.95); backdrop-filter: blur(20px);
+            padding: 1rem 5%; border-bottom: 1px solid var(--glass-border);
+        }
+        .logo {
+            font-family: 'Orbitron', sans-serif; font-size: 2rem; font-weight: 900;
+            background: linear-gradient(90deg, #ffffff 0%, var(--secondary-color) 100%);
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+            letter-spacing: 0.15em;
+        }
+        .nav-links { display: flex; gap: 3.5rem; }
+        .nav-links a {
+            font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.15em;
+            color: var(--text-gray); position: relative; padding: 0.5rem 0;
+        }
+        .nav-links a::after {
+            content: ''; position: absolute; bottom: 0; left: 0; width: 0; height: 2px;
+            background: var(--primary-color); transition: width 0.3s ease;
+        }
+        .nav-links a:hover { color: var(--text-main); }
+        .nav-links a:hover::after { width: 100%; }
+        .mobile-menu-btn { display: none; font-size: 1.5rem; color: var(--text-main); background: none; border: none; cursor: pointer; }
+
+        /* Hero */
+        .hero {
+            height: 100vh; display: flex; align-items: center; justify-content: center;
+            position: relative; overflow: hidden;
+        }
+        .hero-bg { position: absolute; inset: 0; z-index: 0; }
+        .hero-bg img { width: 100%; height: 100%; object-fit: cover; opacity: 0.4; filter: grayscale(80%); }
+        .hero-overlay {
+            position: absolute; inset: 0;
+            background: radial-gradient(circle at center, transparent 0%, var(--bg-color) 90%); z-index: 1;
+        }
+        .hero-content { position: relative; z-index: 2; text-align: center; max-width: 1000px; padding: 0 2rem; }
+        .hero-subtitle {
+            font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.6em;
+            color: var(--primary-color); margin-bottom: 2rem; opacity: 0;
+        }
+        .hero-title {
+            font-size: clamp(3rem, 8vw, 6rem); font-weight: 900; line-height: 1;
+            margin-bottom: 2rem; text-shadow: 0 0 30px rgba(0,0,0,0.8);
+        }
+        .hero-title .line { display: block; opacity: 0; transform: translateY(100%); }
+        .hero-title .line:nth-child(2) { color: transparent; -webkit-text-stroke: 1px var(--text-main); }
+        .hero-desc {
+            font-size: 1.1rem; color: var(--text-gray); max-width: 600px;
+            margin: 0 auto 3.5rem; opacity: 0;
+        }
+        .hero-cta {
+            display: inline-flex; align-items: center; gap: 1rem;
+            padding: 1.2rem 3rem; border: 2px solid var(--primary-color);
+            color: var(--primary-color); font-family: 'Orbitron', sans-serif;
+            font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.25em;
+            position: relative; overflow: hidden; opacity: 0;
+            background: rgba(0, 243, 255, 0.05); transition: all 0.4s ease;
+        }
+        .hero-cta::before {
+            content: ''; position: absolute; top: 0; left: -100%; width: 100%; height: 100%;
+            background: var(--primary-color); transition: left 0.4s ease; z-index: -1;
+        }
+        .hero-cta:hover { color: var(--bg-color); box-shadow: 0 0 40px rgba(0, 243, 255, 0.5); }
+        .hero-cta:hover::before { left: 0; }
+
+        /* Sections */
+        section { padding: 8rem 5%; position: relative; }
+        .section-header { margin-bottom: 5rem; text-align: center; }
+        .section-label {
+            font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.4em;
+            color: var(--secondary-color); margin-bottom: 1.5rem; display: block;
+        }
+        .section-title { font-size: clamp(2.5rem, 6vw, 4rem); margin-bottom: 1.5rem; line-height: 1.1; }
+        .section-desc { font-size: 1.1rem; color: var(--text-gray); max-width: 700px; margin: 0 auto; }
+
+        /* About */
+        .about { background: var(--surface-color); }
+        .about-container { max-width: 1400px; margin: 0 auto; }
+        .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 6rem; align-items: center; margin-bottom: 6rem; }
+        .about-image { position: relative; overflow: hidden; border: 1px solid var(--glass-border); }
+        .about-image img { width: 100%; height: 600px; object-fit: cover; filter: grayscale(100%); transition: all 0.8s ease; }
+        .about-image:hover img { filter: grayscale(0%); transform: scale(1.05); }
+        .about-content h3 { font-size: 2rem; margin-bottom: 2rem; color: var(--primary-color); }
+        .about-content p { color: var(--text-gray); font-size: 1.05rem; margin-bottom: 1.8rem; line-height: 1.9; }
+        .about-features { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5rem; margin-top: 3rem; }
+        .about-feature { display: flex; align-items: flex-start; gap: 1rem; }
+        .about-feature i { color: var(--secondary-color); font-size: 1.3rem; margin-top: 0.3rem; }
+        .about-feature span { color: var(--text-gray); font-size: 0.95rem; }
+        .about-stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 3rem; padding-top: 4rem; border-top: 1px solid var(--glass-border); }
+        .stat-item { text-align: center; }
+        .stat-item h4 { font-size: 3.5rem; color: var(--secondary-color); margin-bottom: 0.8rem; }
+        .stat-item span { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.2em; color: var(--text-gray); }
+
+        /* Services */
+        .services { background: var(--bg-color); padding-bottom: 10rem; }
+        .services-intro {
+            max-width: 900px; margin: 0 auto 5rem; text-align: center;
+            font-size: 1.15rem; color: var(--text-gray); line-height: 1.8;
+            border-left: 4px solid var(--primary-color); padding: 2rem;
+            background: rgba(0, 243, 255, 0.03); border-radius: 8px;
+            opacity: 1 !important;
+        }
+        .services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2.5rem; max-width: 1400px; margin: 0 auto; }
+        .service-card {
+            background: rgba(10, 10, 10, 0.98); border: 1px solid var(--glass-border);
+            overflow: hidden; transition: all 0.5s ease; position: relative;
+            opacity: 1 !important; visibility: visible !important;
+        }
+        .service-card::before {
+            content: ''; position: absolute; top: 0; left: 0; width: 4px; height: 100%;
+            background: var(--primary-color); transform: scaleY(0); transition: transform 0.3s ease; transform-origin: bottom;
+        }
+        .service-card:hover { transform: translateY(-15px); border-color: var(--primary-color); box-shadow: 0 20px 60px rgba(0, 243, 255, 0.1); }
+        .service-card:hover::before { transform: scaleY(1); }
+        .service-image { width: 100%; height: 220px; overflow: hidden; }
+        .service-image img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s ease; }
+        .service-card:hover .service-image img { transform: scale(1.1); }
+        .service-content { padding: 2.5rem; opacity: 1 !important; }
+        .service-icon { font-size: 2.5rem; color: var(--secondary-color); margin-bottom: 1.5rem; }
+        .service-card h3 { font-size: 1.3rem; margin-bottom: 1.2rem; color: var(--text-main); }
+        .service-card p { font-size: 0.95rem; color: var(--text-gray); line-height: 1.8; margin-bottom: 1.5rem; }
+        .service-list { margin-top: 1.5rem; }
+        .service-list li { display: flex; align-items: center; gap: 0.8rem; color: var(--text-gray); font-size: 0.9rem; margin-bottom: 0.8rem; }
+        .service-list li i { color: var(--primary-color); font-size: 0.7rem; }
+
+        /* Process */
+        .process { background: var(--surface-color); padding-bottom: 10rem; }
+        .process-intro {
+            max-width: 900px; margin: 0 auto 5rem; text-align: center;
+            font-size: 1.1rem; color: var(--text-gray); line-height: 1.8;
+            padding-bottom: 2rem; border-bottom: 1px solid var(--glass-border);
+            opacity: 1 !important;
+        }
+        .process-intro h3 { color: var(--secondary-color); font-size: 1.8rem; margin-bottom: 1rem; }
+        .process-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 2rem; max-width: 1400px; margin: 0 auto; }
+        .process-step {
+            text-align: center; padding: 3.5rem 2rem 2.5rem;
+            border: 1px solid var(--glass-border); position: relative;
+            transition: all 0.4s ease; background: rgba(10, 10, 10, 0.98);
+            display: flex; flex-direction: column; min-height: 320px;
+            opacity: 1 !important; visibility: visible !important;
+        }
+        .process-step:hover { border-color: var(--secondary-color); background: rgba(212, 175, 55, 0.05); transform: translateY(-10px); }
+        .process-step::before {
+            content: attr(data-step); position: absolute; top: -25px; left: 50%;
+            transform: translateX(-50%); width: 55px; height: 55px;
+            background: var(--bg-color); border: 2px solid var(--secondary-color);
+            color: var(--secondary-color); font-family: 'Orbitron', sans-serif;
+            font-size: 1.4rem; font-weight: 700; display: flex;
+            align-items: center; justify-content: center; border-radius: 50%;
+            box-shadow: 0 0 20px rgba(212, 175, 55, 0.4);
+        }
+        .process-step h3 { font-size: 1.3rem; margin: 1.5rem 0 1.2rem; color: var(--text-main); }
+        .process-step p { color: var(--text-gray); font-size: 0.92rem; line-height: 1.75; text-align: left; flex-grow: 1; }
+
+        /* Portfolio */
+        .portfolio-filters { display: flex; justify-content: center; gap: 1rem; margin-bottom: 4rem; flex-wrap: wrap; }
+        .filter-btn {
+            padding: 1rem 2.5rem; background: transparent; border: 1px solid var(--glass-border);
+            color: var(--text-gray); font-family: 'Orbitron', sans-serif; font-size: 0.8rem;
+            text-transform: uppercase; letter-spacing: 0.15em; cursor: pointer; transition: all 0.4s ease;
+        }
+        .filter-btn:hover, .filter-btn.active { border-color: var(--primary-color); color: var(--primary-color); background: var(--glass-border); }
+        .portfolio-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(350px, 1fr)); gap: 2rem; max-width: 1400px; margin: 0 auto; }
+        .portfolio-item { position: relative; aspect-ratio: 1/1; overflow: hidden; cursor: pointer; border: 1px solid transparent; transition: all 0.4s ease; background: var(--surface-color); }
+        .portfolio-item:hover { border-color: var(--secondary-color); transform: translateY(-5px); }
+        .portfolio-item img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.8s ease; filter: grayscale(40%); }
+        .portfolio-item:hover img { transform: scale(1.1); filter: grayscale(0%); }
+        .portfolio-play {
+            position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%) scale(0.8);
+            width: 70px; height: 70px; border: 2px solid var(--secondary-color); border-radius: 50%;
+            display: flex; align-items: center; justify-content: center; color: var(--secondary-color);
+            font-size: 1.5rem; opacity: 0; transition: all 0.4s ease; background: rgba(0,0,0,0.6); backdrop-filter: blur(5px); z-index: 10;
+        }
+        .portfolio-item:hover .portfolio-play { opacity: 1; transform: translate(-50%, -50%) scale(1); }
+        .portfolio-overlay {
+            position: absolute; bottom: 0; left: 0; width: 100%; padding: 2rem;
+            background: linear-gradient(to top, rgba(0,0,0,0.95) 0%, transparent 100%);
+            transform: translateY(20px); opacity: 0; transition: all 0.4s ease; z-index: 5;
+        }
+        .portfolio-item:hover .portfolio-overlay { transform: translateY(0); opacity: 1; }
+        .portfolio-title { font-size: 1.3rem; margin-bottom: 0.5rem; line-height: 1.2; }
+        .portfolio-meta { display: flex; gap: 1.5rem; margin-top: 1rem; }
+        .portfolio-meta span { font-size: 0.8rem; color: var(--text-gray); display: flex; align-items: center; gap: 0.5rem; }
+        .portfolio-meta span i { color: var(--secondary-color); }
+
+        /* Contact */
+        .contact { background: linear-gradient(to bottom, var(--surface-color), var(--bg-color)); }
+        .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; max-width: 1400px; margin: 0 auto; }
+        .contact-info h3 { font-size: 2rem; margin-bottom: 2rem; }
+        .contact-info > p { color: var(--text-gray); font-size: 1.1rem; line-height: 1.9; margin-bottom: 3rem; }
+        .contact-details { display: flex; flex-direction: column; gap: 2rem; margin-bottom: 3rem; }
+        .contact-item { display: flex; align-items: center; gap: 1.5rem; padding: 1rem; border: 1px solid var(--glass-border); border-radius: 8px; transition: all 0.3s ease; }
+        .contact-item:hover { border-color: var(--primary-color); background: rgba(0, 243, 255, 0.05); }
+        .contact-item i { width: 60px; height: 60px; border: 1px solid var(--glass-border); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.3rem; color: var(--primary-color); }
+        .contact-item div strong { display: block; color: var(--text-main); margin-bottom: 0.3rem; }
+        .contact-item div span { color: var(--text-gray); }
+        .contact-form { background: rgba(10, 10, 10, 0.9); backdrop-filter: blur(10px); border: 1px solid var(--glass-border); padding: 3.5rem; border-radius: 12px; }
+        .form-group { margin-bottom: 1.8rem; }
+        .form-control { width: 100%; padding: 1.2rem; background: rgba(255,255,255,0.03); border: 1px solid var(--glass-border); color: var(--text-main); font-family: 'Inter', sans-serif; font-size: 1rem; outline: none; transition: all 0.3s ease; border-radius: 4px; }
+        .form-control:focus { border-color: var(--primary-color); box-shadow: 0 0 20px rgba(0, 243, 255, 0.1); }
+        .form-control::placeholder { color: var(--text-muted); }
+        textarea.form-control { min-height: 150px; resize: vertical; }
+        .form-submit { width: 100%; padding: 1.3rem; background: transparent; border: 2px solid var(--secondary-color); color: var(--secondary-color); font-family: 'Orbitron', sans-serif; font-size: 0.9rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.2em; cursor: pointer; transition: all 0.4s ease; border-radius: 4px; }
+        .form-submit:hover { background: var(--secondary-color); color: var(--bg-color); }
+
+        /* Briefing */
+        .briefing { background: var(--bg-color); padding-top: 4rem; }
+        .briefing-container { max-width: 900px; margin: 0 auto; background: var(--surface-color); border: 1px solid var(--glass-border); padding: 4rem; border-radius: 12px; }
+        .briefing h3 { text-align: center; font-size: 2rem; margin-bottom: 1rem; color: var(--primary-color); }
+        .briefing > p { text-align: center; color: var(--text-gray); margin-bottom: 3rem; }
+        .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
+        .form-select { width: 100%; padding: 1.2rem; background: rgba(255,255,255,0.03); border: 1px solid var(--glass-border); color: var(--text-main); font-family: 'Inter', sans-serif; font-size: 1rem; outline: none; cursor: pointer; border-radius: 4px; }
+        .form-select option { background: var(--bg-color); }
+
+        /* Footer */
+        footer { padding: 4rem 5%; border-top: 1px solid var(--glass-border); text-align: center; background: var(--surface-color); }
+        .footer-logo { font-family: 'Orbitron', sans-serif; font-size: 2.5rem; font-weight: 900; background: linear-gradient(90deg, #ffffff, var(--secondary-color)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; letter-spacing: 0.2em; margin-bottom: 1.5rem; display: inline-block; }
+        .footer-text { color: var(--text-gray); font-size: 0.95rem; max-width: 600px; margin: 0 auto 2rem; }
+        .footer-social { display: flex; justify-content: center; gap: 1.5rem; margin-bottom: 3rem; }
+        .social-icon { width: 55px; height: 55px; border: 1px solid var(--glass-border); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: var(--text-gray); font-size: 1.3rem; transition: all 0.4s ease; }
+        .social-icon:hover { border-color: var(--primary-color); color: var(--primary-color); transform: translateY(-5px); }
+        .footer-bottom { padding-top: 2rem; border-top: 1px solid var(--glass-border); }
+        .footer-bottom p { color: var(--text-muted); font-size: 0.85rem; }
+
+        /* Toast */
+        .toast { position: fixed; bottom: 2rem; right: 2rem; background: var(--surface-color); border-left: 4px solid var(--secondary-color); color: var(--text-main); padding: 1.2rem 2.5rem; font-size: 0.95rem; font-weight: 600; z-index: 3000; transform: translateX(150%); transition: transform 0.4s ease; border-radius: 4px; }
+        .toast.show { transform: translateX(0); }
+        .toast i { color: var(--secondary-color); margin-right: 0.5rem; }
+
+        /* Responsive */
+        @media (max-width: 1200px) { .process-grid { grid-template-columns: repeat(2, 1fr); } }
+        @media (max-width: 1024px) { .about-grid, .contact-grid { grid-template-columns: 1fr; gap: 4rem; } .services-grid { grid-template-columns: repeat(2, 1fr); } .about-stats { grid-template-columns: repeat(2, 1fr); } }
+        @media (max-width: 768px) {
+            .mobile-menu-btn { display: block; }
+            .nav-links { display: none; position: fixed; top: 0; right: 0; width: 80%; height: 100vh; background: var(--surface-color); flex-direction: column; justify-content: center; align-items: center; gap: 2rem; z-index: 1000; }
+            .nav-links.active { display: flex; }
+            section { padding: 5rem 5%; }
+            .services-grid, .portfolio-grid, .process-grid { grid-template-columns: 1fr; }
+            .process-step { min-height: auto; }
+            .about-features, .about-stats, .form-row { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Preloader -->
+    <div id="preloader">
+        <div class="preloader-text">Carregando Experiência</div>
+        <div class="preloader-logo">UFA FILM</div>
+        <div class="preloader-bar"><div class="preloader-progress"></div></div>
+    </div>
+
+    <!-- Navigation -->
+    <nav id="navbar">
+        <a href="#" class="logo">UFA <span style="font-size:0.5em;display:block;">FILM</span></a>
+        <ul class="nav-links">
+            <li><a href="#about" class="nav-link">A Produtora</a></li>
+            <li><a href="#services" class="nav-link">Serviços</a></li>
+            <li><a href="#process" class="nav-link">Processo</a></li>
+            <li><a href="#portfolio" class="nav-link">Portfólio</a></li>
+            <li><a href="#contact" class="nav-link">Contato</a></li>
+        </ul>
+        <button class="mobile-menu-btn" onclick="toggleMobileMenu()"><i class="fas fa-bars"></i></button>
+    </nav>
+
+    <!-- Hero -->
+    <section class="hero" id="hero">
+        <div class="hero-bg"><img id="img-hero" src="https://images.unsplash.com/photo-1536240478700-b869070f9279?w=1200" alt="UFA FILM"></div>
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <p class="hero-subtitle">Produção Audiovisual de Alto Padrão</p>
+            <h1 class="hero-title">
+                <span class="line">Capturando</span>
+                <span class="line">a Essência</span>
+                <span class="line">Elevando o</span>
+                <span class="line">Conceito</span>
+            </h1>
+            <p class="hero-desc">Transformamos visões em experiências visuais inesquecíveis. Cada frame é executado com excelência técnica e criatividade ilimitada.</p>
+            <a href="#portfolio" class="hero-cta"><span>Ver Projetos</span><i class="fas fa-arrow-right"></i></a>
+        </div>
+    </section>
+
+    <!-- About -->
+    <section class="about" id="about">
+        <div class="about-container">
+            <div class="section-header">
+                <span class="section-label">A Produtora</span>
+                <h2 class="section-title">Quem Somos</h2>
+            </div>
+            <div class="about-grid">
+                <div class="about-image"><img id="img-about" src="https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?w=800" alt="Estúdio"></div>
+                <div class="about-content">
+                    <h3>Excelência em Cada Frame</h3>
+                    <p>A UFA FILM nasceu da paixão pelo cinema. Somos uma equipe dedicada a transformar ideias em obras audiovisuais.</p>
+                    <p>Utilizamos equipamentos 6K com Open Gate para máxima qualidade e flexibilidade criativa.</p>
+                    <div class="about-features">
+                        <div class="about-feature"><i class="fas fa-check-circle"></i><span>Produção completa in-house</span></div>
+                        <div class="about-feature"><i class="fas fa-check-circle"></i><span>Equipamentos cinema-grade 6K</span></div>
+                        <div class="about-feature"><i class="fas fa-check-circle"></i><span>Color grading profissional</span></div>
+                        <div class="about-feature"><i class="fas fa-check-circle"></i><span>Atendimento personalizado</span></div>
+                    </div>
+                </div>
+            </div>
+            <div class="about-stats">
+                <div class="stat-item"><h4>+150</h4><span>Projetos</span></div>
+                <div class="stat-item"><h4>6K</h4><span>Resolução</span></div>
+                <div class="stat-item"><h4>50+</h4><span>Marcas</span></div>
+                <div class="stat-item"><h4>100%</h4><span>Satisfação</span></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services - 6 CARDS -->
+    <section class="services" id="services">
+        <div class="section-header">
+            <span class="section-label">Nossos Serviços</span>
+            <h2 class="section-title">Soluções Audiovisuais</h2>
+        </div>
+        <div class="services-intro">Na UFA FILM, criamos experiências visuais completas. Cada serviço maximiza o impacto da sua marca com tecnologia de ponta.</div>
+        <div class="services-grid">
+            <div class="service-card">
+                <div class="service-image"><img id="img-serv-1" src="https://images.unsplash.com/photo-1574717024653-61fd2cf4d44c?w=600" alt="Comerciais"></div>
+                <div class="service-content">
+                    <i class="fas fa-video service-icon"></i>
+                    <h3>Comerciais e Publicidade</h3>
+                    <p>Filmes publicitários de alto impacto para TV, digital e cinema.</p>
+                    <ul class="service-list">
+                        <li><i class="fas fa-caret-right"></i> Produção 4K/6K</li>
+                        <li><i class="fas fa-caret-right"></i> Roteiro criativo</li>
+                        <li><i class="fas fa-caret-right"></i> Distribuição multiplataforma</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="service-card">
+                <div class="service-image"><img id="img-serv-2" src="https://images.unsplash.com/photo-1506947411487-a56738267384?w=600" alt="Drone"></div>
+                <div class="service-content">
+                    <i class="fas fa-helicopter service-icon"></i>
+                    <h3>Imagens Aéreas</h3>
+                    <p>Capturas aéreas cinematográficas com perspectivas únicas.</p>
+                    <ul class="service-list">
+                        <li><i class="fas fa-caret-right"></i> Drones profissionais 4K</li>
+                        <li><i class="fas fa-caret-right"></i> Pilotos certificados</li>
+                        <li><i class="fas fa-caret-right"></i> Estabilização avançada</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="service-card">
+                <div class="service-image"><img id="img-serv-3" src="https://images.unsplash.com/photo-1517457373958-b7bdd4587205?w=600" alt="Eventos"></div>
+                <div class="service-content">
+                    <i class="fas fa-film service-icon"></i>
+                    <h3>Cobertura de Eventos</h3>
+                    <p>Documentação audiovisual completa com qualidade cinematográfica.</p>
+                    <ul class="service-list">
+                        <li><i class="fas fa-caret-right"></i> Equipamento broadcast</li>
+                        <li><i class="fas fa-caret-right"></i> Entrega em tempo real</li>
+                        <li><i class="fas fa-caret-right"></i> After movie emocional</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="service-card">
+                <div class="service-image"><img id="img-serv-4" src="https://images.unsplash.com/photo-1558171813-4c088753af8f?w=600" alt="Fashion"></div>
+                <div class="service-content">
+                    <i class="fas fa-camera service-icon"></i>
+                    <h3>Fashion Films</h3>
+                    <p>Filmes de moda sofisticados para marcas e designers.</p>
+                    <ul class="service-list">
+                        <li><i class="fas fa-caret-right"></i> Direção de arte</li>
+                        <li><i class="fas fa-caret-right"></i> Styling e cenografia</li>
+                        <li><i class="fas fa-caret-right"></i> Color grading premium</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="service-card">
+                <div class="service-image"><img id="img-serv-5" src="https://images.unsplash.com/photo-1551218808-94e220e084d2?w=600" alt="Gastronomia"></div>
+                <div class="service-content">
+                    <i class="fas fa-utensils service-icon"></i>
+                    <h3>Vídeos Gastronômicos</h3>
+                    <p>Food films que despertam sentidos através da culinária.</p>
+                    <ul class="service-list">
+                        <li><i class="fas fa-caret-right"></i> Food styling</li>
+                        <li><i class="fas fa-caret-right"></i> Iluminação especializada</li>
+                        <li><i class="fas fa-caret-right"></i> Motion graphics</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="service-card">
+                <div class="service-image"><img id="img-serv-6" src="https://images.unsplash.com/photo-1596462502278-27bfdd403348?w=600" alt="Beleza"></div>
+                <div class="service-content">
+                    <i class="fas fa-sparkles service-icon"></i>
+                    <h3>Beleza e Cosméticos</h3>
+                    <p>Filmes para a indústria da beleza com conexão emocional.</p>
+                    <ul class="service-list">
+                        <li><i class="fas fa-caret-right"></i> Macro cinematográfico</li>
+                        <li><i class="fas fa-caret-right"></i> High-speed filming</li>
+                        <li><i class="fas fa-caret-right"></i> Retoque digital</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Process - 4 ETAPAS -->
+    <section class="process" id="process">
+        <div class="section-header">
+            <span class="section-label">Nosso Processo</span>
+            <h2 class="section-title">Como Trabalhamos</h2>
+        </div>
+        <div class="process-intro">
+            <h3>Nossa Metodologia</h3>
+            <p>Um processo estruturado em 4 etapas para garantir excelência em cada projeto.</p>
+        </div>
+        <div class="process-grid">
+            <div class="process-step" data-step="01">
+                <h3>Descoberta</h3>
+                <p><strong>O início de tudo.</strong> Reunião de alinhamento para entender a visão do cliente, objetivos e público-alvo. Análise de concorrência e definição do tom visual.</p>
+            </div>
+            <div class="process-step" data-step="02">
+                <h3>Pré-Produção</h3>
+                <p><strong>Planejamento minucioso.</strong> Desenvolvimento de roteiro, storyboard, casting e logística. Seleção de equipamentos cinema-grade para qualidade 6K.</p>
+            </div>
+            <div class="process-step" data-step="03">
+                <h3>Produção</h3>
+                <p><strong>A magia acontece.</strong> Gravação com câmeras Open Gate, áudio profissional e direção de cena para cada take com precisão emocional.</p>
+            </div>
+            <div class="process-step" data-step="04">
+                <h3>Pós-Produção</h3>
+                <p><strong>A obra ganha vida.</strong> Edição dinâmica, motion graphics e Color Grading profissional. Masterização e entrega em 4K/6K.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio -->
+    <section class="portfolio" id="portfolio">
+        <div class="section-header">
+            <span class="section-label">Portfólio</span>
+            <h2 class="section-title">Trabalhos Selecionados</h2>
+        </div>
+        <div class="portfolio-filters">
+            <button class="filter-btn active" onclick="filterPortfolio('all')">Todos</button>
+            <button class="filter-btn" onclick="filterPortfolio('comercial')">Comerciais</button>
+            <button class="filter-btn" onclick="filterPortfolio('drone')">Drone</button>
+            <button class="filter-btn" onclick="filterPortfolio('evento')">Eventos</button>
+        </div>
+        <div class="portfolio-grid" id="portfolioGrid"></div>
+    </section>
+
+    <!-- Contact -->
+    <section class="contact" id="contact">
+        <div class="section-header">
+            <span class="section-label">Contato</span>
+            <h2 class="section-title">Vamos Criar Algo Incrível</h2>
+        </div>
+        <div class="contact-grid">
+            <div class="contact-info">
+                <h3>Fale Conosco</h3>
+                <p>Estamos prontos para ouvir sobre seu projeto audiovisual.</p>
+                <div class="contact-details">
+                    <div class="contact-item"><i class="fab fa-whatsapp"></i><div><strong>WhatsApp</strong><span>(62) 98433-2509</span></div></div>
+                    <div class="contact-item"><i class="fas fa-envelope"></i><div><strong>E-mail</strong><span>eclatnoble1@gmail.com</span></div></div>
+                    <div class="contact-item"><i class="fab fa-instagram"></i><div><strong>Instagram</strong><span>@ufa.film</span></div></div>
+                </div>
+            </div>
+            <div class="contact-form">
+                <form onsubmit="handleContactSubmit(event)">
+                    <div class="form-group"><input type="text" class="form-control" placeholder="Seu Nome" required></div>
+                    <div class="form-group"><input type="email" class="form-control" placeholder="Seu E-mail" required></div>
+                    <div class="form-group"><textarea class="form-control" placeholder="Conte-nos sobre seu projeto..." required></textarea></div>
+                    <button type="submit" class="form-submit">Enviar Mensagem</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Briefing -->
+    <section class="briefing" id="questionnaire">
+        <div class="briefing-container">
+            <h3>Briefing Completo</h3>
+            <p>Preencha o formulário para nos ajudar a entender suas necessidades.</p>
+            <form onsubmit="handleBriefingSubmit(event)">
+                <div class="form-row">
+                    <div class="form-group"><input type="text" class="form-control" placeholder="Nome / Empresa" required></div>
+                    <div class="form-group"><input type="email" class="form-control" placeholder="E-mail" required></div>
+                </div>
+                <div class="form-group">
+                    <select class="form-select" required>
+                        <option value="" disabled selected>Tipo de Projeto</option>
+                        <option value="comercial">Comercial</option>
+                        <option value="drone">Drone</option>
+                        <option value="evento">Evento</option>
+                        <option value="fashion">Fashion</option>
+                        <option value="gastronomia">Gastronomia</option>
+                        <option value="beleza">Beleza</option>
+                    </select>
+                </div>
+                <div class="form-group"><textarea class="form-control" placeholder="Descreva seu projeto..." rows="4" required></textarea></div>
+                <button type="submit" class="form-submit">Enviar Briefing</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-logo">UFA <span>FILM</span></div>
+        <p class="footer-text">Produção audiovisual de alto padrão. Transformando visões em experiências cinematográficas.</p>
+        <div class="footer-social">
+            <a href="https://www.instagram.com/ufa.film/" target="_blank" class="social-icon"><i class="fab fa-instagram"></i></a>
+            <a href="https://wa.me/5562984332509" target="_blank" class="social-icon"><i class="fab fa-whatsapp"></i></a>
+        </div>
+        <div class="footer-bottom"><p>&copy; 2024 UFA FILM. Todos os direitos reservados.</p></div>
+    </footer>
+
+    <!-- Toast -->
+    <div class="toast" id="toast"><i class="fas fa-check-circle"></i><span id="toastMsg">Mensagem enviada!</span></div>
+
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script>
+        // ============================================
+        // CONFIGURAÇÃO - ALTERE PARA SUA URL DO GITHUB
+        // ============================================
+        const DATA_URL = 'data.json'; // Relativo (mesma pasta)
+        // Para GitHub Pages, use: 'https://seuusuario.github.io/seurepo/data.json'
+        
+        // Portfolio Data
+        let portfolioData = [];
+
+        // Load Data from JSON
+        async function loadSiteData() {
+            try {
+                const response = await fetch(DATA_URL);
+                if (!response.ok) throw new Error('Erro ao carregar dados');
+                const data = await response.json();
+                
+                // Load portfolio
+                if (data.portfolio && data.portfolio.length > 0) {
+                    portfolioData = data.portfolio;
+                }
+                
+                // Load site images
+                if (data.siteImages) {
+                    for (const [id, url] of Object.entries(data.siteImages)) {
+                        const el = document.getElementById(id);
+                        if (el) el.src = url;
+                    }
+                }
+                
+                renderPortfolio();
+            } catch (error) {
+                console.log('Usando dados padrão:', error);
+                // Fallback para localStorage se JSON falhar
+                loadFromLocalStorage();
+            }
+        }
+
+        // Fallback: Load from localStorage (para uso local/admin)
+        function loadFromLocalStorage() {
+            const saved = localStorage.getItem('ufaPortfolio');
+            if (saved) { 
+                try { portfolioData = JSON.parse(saved); } catch(e) {} 
+            }
+            const savedImages = localStorage.getItem('ufaSiteImages');
+            if (savedImages) {
+                const images = JSON.parse(savedImages);
+                for (const [id, url] of Object.entries(images)) {
+                    const el = document.getElementById(id);
+                    if (el) el.src = url;
+                }
+            }
+            renderPortfolio();
+        }
+
+        // Preloader Animation
+        window.addEventListener('load', () => {
+            loadSiteData();
+            
+            const tl = gsap.timeline();
+            tl.to('.preloader-text', { opacity: 1, y: 0, duration: 0.6 })
+              .to('.preloader-progress', {
+                  width: '100%', duration: 2,
+                  onUpdate: function() {
+                      gsap.set('.preloader-logo', { opacity: this.progress(), scale: 0.8 + this.progress() * 0.2 });
+                  }
+              }, '-=0.2')
+              .to('#preloader', { yPercent: -100, duration: 1 })
+              .to('.hero-subtitle', { opacity: 1, y: 0, duration: 0.8 }, '-=0.5')
+              .to('.hero-title .line', { opacity: 1, y: 0, duration: 1, stagger: 0.1 }, '-=0.6')
+              .to('.hero-desc', { opacity: 1, y: 0, duration: 0.8 }, '-=0.6')
+              .to('.hero-cta', { opacity: 1, y: 0, duration: 0.8 }, '-=0.4');
+        });
+
+        // Navigation
+        window.addEventListener('scroll', () => {
+            document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 100);
+        });
+        function toggleMobileMenu() {
+            document.querySelector('.nav-links').classList.toggle('active');
+        }
+
+        // Portfolio
+        function renderPortfolio(filter = 'all') {
+            const grid = document.getElementById('portfolioGrid');
+            const filtered = filter === 'all' ? portfolioData : portfolioData.filter(p => p.category === filter);
+            grid.innerHTML = filtered.map(item => `
+                <div class="portfolio-item" onclick="openVideo('${item.video || '#'}')">
+                    <img src="${item.image}" alt="${item.title}">
+                    <div class="portfolio-play"><i class="fas fa-play"></i></div>
+                    <div class="portfolio-overlay">
+                        <span class="portfolio-category">${item.category}</span>
+                        <h4 class="portfolio-title">${item.title}</h4>
+                        <div class="portfolio-meta">
+                            <span><i class="fas fa-eye"></i> ${item.views || '0'}</span>
+                            <span><i class="fas fa-heart"></i> ${item.likes || '0'}</span>
+                        </div>
+                    </div>
+                </div>
+            `).join('');
+        }
+        
+        function openVideo(url) {
+            if (url && url !== '#') {
+                window.open(url, '_blank');
+            }
+        }
+        
+        function filterPortfolio(category) {
+            document.querySelectorAll('.filter-btn').forEach(btn => btn.classList.remove('active'));
+            event.target.classList.add('active');
+            renderPortfolio(category);
+        }
+
+        // Forms
+        function handleContactSubmit(e) {
+            e.preventDefault();
+            showToast('Mensagem enviada com sucesso!');
+            e.target.reset();
+        }
+        function handleBriefingSubmit(e) {
+            e.preventDefault();
+            showToast('Briefing enviado! Entraremos em contato.');
+            e.target.reset();
+        }
+        function showToast(msg) {
+            const toast = document.getElementById('toast');
+            document.getElementById('toastMsg').textContent = msg;
+            toast.classList.add('show');
+            setTimeout(() => toast.classList.remove('show'), 3500);
+        }
+    </script>
+</body>
+</html>
