@@ -12,7 +12,6 @@
         :root {
             --bg-color: #050505;
             --surface-color: #0a0a0a;
-            --surface-hover: #121212;
             --primary-color: #00f3ff;
             --primary-dim: rgba(0, 243, 255, 0.15);
             --secondary-color: #D4AF37;
@@ -27,92 +26,50 @@
         body { font-family: 'Inter', sans-serif; background-color: var(--bg-color); color: var(--text-main); min-height: 100vh; line-height: 1.6; }
         h1, h2, h3, h4 { font-family: 'Orbitron', sans-serif; text-transform: uppercase; letter-spacing: 0.08em; }
 
-        /* Login Screen */
         #loginScreen { position: fixed; inset: 0; background: var(--bg-color); display: flex; align-items: center; justify-content: center; z-index: 1000; }
-        .login-container { width: 100%; max-width: 450px; padding: 3rem; background: var(--surface-color); border: 1px solid var(--glass-border); text-align: center; border-radius: 12px; box-shadow: 0 0 50px rgba(0,0,0,0.5); }
+        .login-container { width: 100%; max-width: 450px; padding: 3rem; background: var(--surface-color); border: 1px solid var(--glass-border); text-align: center; border-radius: 12px; }
         .login-logo { font-family: 'Orbitron', sans-serif; font-size: 2.5rem; font-weight: 900; margin-bottom: 0.5rem; }
         .login-logo span { color: var(--primary-color); }
         .login-subtitle { color: var(--text-gray); font-size: 0.9rem; margin-bottom: 2.5rem; }
         .form-group { margin-bottom: 1.5rem; text-align: left; }
         .form-group label { display: block; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--text-gray); margin-bottom: 0.5rem; }
-        .form-control {
-            width: 100%; padding: 1rem 1.2rem; background: rgba(255,255,255,0.03); border: 1px solid var(--glass-border);
-            color: var(--text-main); font-family: 'Inter', sans-serif; font-size: 1rem; outline: none; transition: all 0.3s ease; border-radius: 4px;
-        }
+        .form-control { width: 100%; padding: 1rem 1.2rem; background: rgba(255,255,255,0.03); border: 1px solid var(--glass-border); color: var(--text-main); font-family: 'Inter', sans-serif; font-size: 1rem; outline: none; transition: all 0.3s ease; border-radius: 4px; }
         .form-control:focus { border-color: var(--primary-color); box-shadow: 0 0 15px rgba(0, 243, 255, 0.2); }
-        .btn {
-            width: 100%; padding: 1.2rem; background: var(--primary-color); border: none; color: var(--bg-color);
-            font-family: 'Orbitron', sans-serif; font-size: 0.9rem; font-weight: 700; text-transform: uppercase;
-            letter-spacing: 0.15em; cursor: pointer; transition: all 0.3s ease; border-radius: 4px;
-        }
+        .btn { width: 100%; padding: 1.2rem; background: var(--primary-color); border: none; color: var(--bg-color); font-family: 'Orbitron', sans-serif; font-size: 0.9rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.15em; cursor: pointer; transition: all 0.3s ease; border-radius: 4px; }
         .btn:hover { box-shadow: 0 0 30px rgba(0, 243, 255, 0.5); }
 
-        /* Admin Dashboard */
         #adminDashboard { display: none; min-height: 100vh; }
-        .sidebar {
-            position: fixed;
-            left: 0;
-            top: 0;
-            width: 300px;
-            height: 100vh;
-            background: var(--surface-color);
-            border-right: 1px solid var(--glass-border);
-            padding: 2rem;
-            display: flex;
-            flex-direction: column;
-            gap: 2rem;
-            flex-shrink: 0;
-            overflow-y: auto;
-        }
+        .sidebar { position: fixed; left: 0; top: 0; width: 280px; height: 100vh; background: var(--surface-color); border-right: 1px solid var(--glass-border); padding: 2rem; display: flex; flex-direction: column; gap: 2rem; overflow-y: auto; }
         .sidebar-logo { font-family: 'Orbitron', sans-serif; font-size: 1.8rem; font-weight: 900; text-align: center; }
         .sidebar-logo span { color: var(--primary-color); }
         .sidebar-nav { display: flex; flex-direction: column; gap: 0.5rem; }
-        .sidebar-nav button {
-            width: 100%; text-align: left; padding: 1rem 1.5rem; background: transparent; border: none;
-            color: var(--text-gray); font-family: 'Inter', sans-serif; font-size: 1rem; cursor: pointer;
-            border-radius: 8px; transition: all 0.3s ease; display: flex; align-items: center; gap: 1rem;
-        }
+        .sidebar-nav button { width: 100%; text-align: left; padding: 1rem 1.5rem; background: transparent; border: none; color: var(--text-gray); font-family: 'Inter', sans-serif; font-size: 1rem; cursor: pointer; border-radius: 8px; transition: all 0.3s ease; display: flex; align-items: center; gap: 1rem; }
         .sidebar-nav button:hover, .sidebar-nav button.active { background: var(--primary-dim); color: var(--primary-color); }
-        .sidebar-nav button i { width: 20px; text-align: center; }
-        .btn-logout {
-            margin-top: auto; padding: 1rem; background: transparent; border: 1px solid var(--danger-color);
-            color: var(--danger-color); font-family: 'Orbitron', sans-serif; font-size: 0.8rem;
-            text-transform: uppercase; letter-spacing: 0.1em; cursor: pointer; transition: all 0.3s ease; border-radius: 8px;
-        }
+        .btn-logout { margin-top: auto; padding: 1rem; background: transparent; border: 1px solid var(--danger-color); color: var(--danger-color); font-family: 'Orbitron', sans-serif; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.1em; cursor: pointer; transition: all 0.3s ease; border-radius: 8px; }
         .btn-logout:hover { background: var(--danger-color); color: var(--text-main); }
 
-        .main-content { margin-left: 300px; padding: 3rem; min-height: 100vh; background: var(--bg-color); overflow-y: auto; }
+        .main-content { margin-left: 280px; padding: 3rem; min-height: 100vh; background: var(--bg-color); }
         .page-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 3rem; padding-bottom: 1.5rem; border-bottom: 1px solid var(--glass-border); }
         .page-header h1 { font-size: 1.8rem; }
-        .page-header p { color: var(--text-gray); font-size: 0.9rem; margin-top: 0.3rem; }
 
-        /* Cards & Grids */
         .card { background: var(--surface-color); border: 1px solid var(--glass-border); margin-bottom: 2rem; border-radius: 12px; overflow: hidden; }
-        .card-header { padding: 1.5rem; border-bottom: 1px solid var(--glass-border); display: flex; justify-content: space-between; align-items: center; background: rgba(255,255,255,0.02); }
-        .card-header h3 { font-size: 1.1rem; color: var(--text-main); }
         .card-body { padding: 1.5rem; }
         
-        .btn-add {
-            padding: 0.6rem 1.2rem; background: var(--success-color); border: none; color: var(--bg-color);
-            font-family: 'Orbitron', sans-serif; font-size: 0.7rem; text-transform: uppercase; cursor: pointer;
-            border-radius: 4px; transition: all 0.3s ease;
-        }
+        .btn-add { padding: 0.6rem 1.2rem; background: var(--success-color); border: none; color: var(--bg-color); font-family: 'Orbitron', sans-serif; font-size: 0.7rem; text-transform: uppercase; cursor: pointer; border-radius: 4px; }
         .btn-add:hover { box-shadow: 0 0 20px rgba(0, 255, 136, 0.4); }
 
-        /* Portfolio Admin Grid */
         .portfolio-admin-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1.5rem; }
-        .portfolio-admin-item { background: var(--bg-color); border: 1px solid var(--glass-border); overflow: hidden; position: relative; border-radius: 8px; }
+        .portfolio-admin-item { background: var(--bg-color); border: 1px solid var(--glass-border); overflow: hidden; border-radius: 8px; }
         .portfolio-admin-item img { width: 100%; height: 180px; object-fit: cover; }
         .portfolio-admin-info { padding: 1rem; }
-        .portfolio-admin-info h4 { font-size: 0.9rem; margin-bottom: 0.3rem; color: var(--text-main); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+        .portfolio-admin-info h4 { font-size: 0.9rem; margin-bottom: 0.3rem; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
         .portfolio-admin-info p { font-size: 0.75rem; color: var(--text-gray); margin-bottom: 0.8rem; }
         .portfolio-admin-actions { display: flex; gap: 0.5rem; }
-        .btn-small { padding: 0.4rem 0.8rem; font-size: 0.7rem; border: none; cursor: pointer; font-family: 'Orbitron', sans-serif; text-transform: uppercase; letter-spacing: 0.1em; transition: all 0.3s ease; border-radius: 4px; }
+        .btn-small { padding: 0.4rem 0.8rem; font-size: 0.7rem; border: none; cursor: pointer; font-family: 'Orbitron', sans-serif; text-transform: uppercase; border-radius: 4px; }
         .btn-edit { background: var(--primary-color); color: var(--bg-color); }
         .btn-delete { background: transparent; border: 1px solid var(--danger-color); color: var(--danger-color); }
         .btn-delete:hover { background: var(--danger-color); color: var(--text-main); }
 
-        /* Image Update Section */
         .site-images-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1.5rem; }
         .site-image-card { background: var(--bg-color); border: 1px solid var(--glass-border); border-radius: 8px; overflow: hidden; }
         .site-image-card img { width: 100%; height: 150px; object-fit: cover; }
@@ -120,62 +77,40 @@
         .site-image-info h4 { font-size: 0.9rem; margin-bottom: 0.3rem; color: var(--primary-color); }
         .site-image-info p { font-size: 0.75rem; color: var(--text-gray); margin-bottom: 1rem; }
 
-        /* Modal */
-        .modal {
-            position: fixed; inset: 0; background: rgba(0, 0, 0, 0.95); z-index: 2000; display: none;
-            align-items: center; justify-content: center; padding: 2rem; backdrop-filter: blur(10px);
-        }
+        .modal { position: fixed; inset: 0; background: rgba(0, 0, 0, 0.95); z-index: 2000; display: none; align-items: center; justify-content: center; padding: 2rem; backdrop-filter: blur(10px); }
         .modal.active { display: flex; }
-        .modal-content {
-            background: var(--surface-color); border: 1px solid var(--glass-border); width: 100%; max-width: 600px;
-            max-height: 90vh; overflow-y: auto; border-radius: 12px; position: relative;
-        }
+        .modal-content { background: var(--surface-color); border: 1px solid var(--glass-border); width: 100%; max-width: 600px; max-height: 90vh; overflow-y: auto; border-radius: 12px; }
         .modal-header { padding: 1.5rem; border-bottom: 1px solid var(--glass-border); display: flex; justify-content: space-between; align-items: center; }
         .modal-header h3 { font-size: 1.2rem; color: var(--primary-color); }
-        .modal-close { background: none; border: none; color: var(--text-gray); font-size: 1.5rem; cursor: pointer; transition: color 0.3s ease; }
+        .modal-close { background: none; border: none; color: var(--text-gray); font-size: 1.5rem; cursor: pointer; }
         .modal-close:hover { color: var(--primary-color); }
         .modal-body { padding: 1.5rem; }
         .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
-        .form-select {
-            width: 100%; padding: 1rem 1.2rem; background: rgba(255,255,255,0.03); border: 1px solid var(--glass-border);
-            color: var(--text-main); font-family: 'Inter', sans-serif; font-size: 1rem; outline: none; cursor: pointer; border-radius: 4px;
-        }
+        .form-select { width: 100%; padding: 1rem 1.2rem; background: rgba(255,255,255,0.03); border: 1px solid var(--glass-border); color: var(--text-main); font-family: 'Inter', sans-serif; font-size: 1rem; outline: none; cursor: pointer; border-radius: 4px; }
         .form-select option { background: var(--bg-color); }
-        .form-hint { font-size: 0.7rem; color: var(--text-muted); margin-top: 0.3rem; }
-        .image-preview {
-            width: 100%; height: 150px; background: var(--bg-color); border: 2px dashed var(--glass-border);
-            display: flex; align-items: center; justify-content: center; margin-bottom: 1rem; overflow: hidden; border-radius: 4px;
-        }
+        .form-hint { font-size: 0.75rem; color: var(--text-muted); margin-top: 0.3rem; }
+        .image-preview { width: 100%; height: 150px; background: var(--bg-color); border: 2px dashed var(--glass-border); display: flex; align-items: center; justify-content: center; margin-bottom: 1rem; overflow: hidden; border-radius: 4px; }
         .image-preview img { width: 100%; height: 100%; object-fit: cover; }
 
-        /* Toast */
-        .toast {
-            position: fixed; bottom: 2rem; right: 2rem; background: var(--success-color); color: var(--bg-color);
-            padding: 1rem 2rem; font-size: 0.9rem; font-weight: 600; z-index: 3000; transform: translateX(150%);
-            transition: transform 0.4s ease; border-radius: 5px;
-        }
+        .toast { position: fixed; bottom: 2rem; right: 2rem; background: var(--success-color); color: var(--bg-color); padding: 1rem 2rem; font-size: 0.9rem; font-weight: 600; z-index: 3000; transform: translateX(150%); transition: transform 0.4s ease; border-radius: 5px; }
         .toast.show { transform: translateX(0); }
         .toast.error { background: var(--danger-color); color: var(--text-main); }
 
-        /* Responsive */
+        .export-box { text-align: center; padding: 3rem; }
+        .export-box i { font-size: 4rem; color: var(--primary-color); margin-bottom: 1.5rem; }
+        .export-box h3 { margin-bottom: 1rem; }
+        .export-box p { color: var(--text-gray); margin-bottom: 2rem; }
+        .export-box .btn { max-width: 300px; margin: 0 auto; }
+
         @media (max-width: 768px) {
-            .sidebar { 
-                position: relative; 
-                width: 100%; 
-                border-right: none; 
-                border-bottom: 1px solid var(--glass-border); 
-                padding: 1rem;
-                height: auto;
-            }
+            .sidebar { position: relative; width: 100%; border-right: none; border-bottom: 1px solid var(--glass-border); padding: 1rem; height: auto; }
             .main-content { margin-left: 0; }
-            .sidebar-nav { flex-direction: row; overflow-x: auto; padding-bottom: 0.5rem; flex-wrap: wrap; }
-            .sidebar-nav button { white-space: nowrap; padding: 0.8rem 1rem; font-size: 0.9rem; }
-            .btn-logout { margin-top: 1rem; }
+            .sidebar-nav { flex-direction: row; overflow-x: auto; flex-wrap: wrap; }
         }
     </style>
 </head>
 <body>
-    <!-- Login Screen -->
+    <!-- TELA DE LOGIN -->
     <div id="loginScreen">
         <div class="login-container">
             <div class="login-logo">UFA <span>FILM</span></div>
@@ -194,34 +129,32 @@
         </div>
     </div>
 
-    <!-- Admin Dashboard -->
+    <!-- PAINEL ADMIN -->
     <div id="adminDashboard">
-        <!-- Sidebar -->
         <aside class="sidebar">
             <div class="sidebar-logo">UFA <span>FILM</span></div>
             <nav class="sidebar-nav">
                 <button class="active" onclick="showSection('dashboard')"><i class="fas fa-home"></i> Dashboard</button>
                 <button onclick="showSection('portfolio')"><i class="fas fa-video"></i> Portfólio</button>
-                <button onclick="showSection('images')"><i class="fas fa-image"></i> Imagens do Site</button>
+                <button onclick="showSection('images')"><i class="fas fa-image"></i> Imagens</button>
+                <button onclick="showSection('export')"><i class="fas fa-download"></i> Exportar JSON</button>
             </nav>
             <button class="btn-logout" onclick="logout()"><i class="fas fa-sign-out-alt"></i> Sair</button>
         </aside>
 
-        <!-- Main Content -->
         <main class="main-content">
-            <!-- Dashboard Section -->
+            <!-- Dashboard -->
             <div id="dashboardSection">
-                <div class="page-header">
-                    <div><h1>Dashboard</h1><p>Visão geral do conteúdo</p></div>
-                </div>
+                <div class="page-header"><div><h1>Dashboard</h1></div></div>
                 <div class="card">
                     <div class="card-body">
-                        <h3 style="color: var(--text-main); margin-bottom: 1rem;">Instruções</h3>
-                        <p style="color: var(--text-gray); line-height: 1.8;">
-                            Bem-vindo ao painel da UFA FILM. Este sistema está conectado diretamente ao site principal.<br><br>
-                            1. <strong>Portfólio:</strong> Adicione novos vídeos usando o link de incorporação (Embed) do Instagram.<br>
-                            2. <strong>Imagens:</strong> Atualize as imagens fixas do site (Hero, Sobre, Serviços) colando novas URLs.<br>
-                            <br><em>Nota: Como este é um site estático (GitHub Pages), utilizamos o armazenamento local do seu navegador para simular um banco de dados. As alterações ficarão salvas no seu computador.</em>
+                        <h3 style="color: var(--text-main); margin-bottom: 1rem;">Passo a Passo</h3>
+                        <p style="color: var(--text-gray); line-height: 2;">
+                            <strong>1.</strong> Adicione vídeos na aba <strong>Portfólio</strong><br>
+                            <strong>2.</strong> Atualize imagens na aba <strong>Imagens</strong><br>
+                            <strong>3.</strong> Clique em <strong>Exportar JSON</strong> e baixe o arquivo<br>
+                            <strong>4.</strong> Faça upload do novo data.json no GitHub<br>
+                            <strong>5.</strong> Pronto! Site atualizado!
                         </p>
                     </div>
                 </div>
@@ -233,26 +166,37 @@
                 </div>
             </div>
 
-            <!-- Portfolio Section -->
+            <!-- Portfólio -->
             <div id="portfolioSection" style="display: none;">
                 <div class="page-header">
-                    <div><h1>Gerenciar Portfólio</h1><p>Adicione, edite ou remova vídeos</p></div>
+                    <div><h1>Portfólio</h1></div>
                     <button class="btn-add" onclick="openAddModal()"><i class="fas fa-plus"></i> Adicionar Vídeo</button>
                 </div>
                 <div class="portfolio-admin-grid" id="portfolioGrid"></div>
             </div>
 
-            <!-- Images Section -->
+            <!-- Imagens -->
             <div id="imagesSection" style="display: none;">
-                <div class="page-header">
-                    <div><h1>Imagens do Site</h1><p>Atualize as imagens fixas do site principal</p></div>
-                </div>
+                <div class="page-header"><div><h1>Imagens do Site</h1></div></div>
                 <div class="site-images-grid" id="siteImagesGrid"></div>
+            </div>
+
+            <!-- Exportar -->
+            <div id="exportSection" style="display: none;">
+                <div class="page-header"><div><h1>Exportar Dados</h1></div></div>
+                <div class="card">
+                    <div class="card-body export-box">
+                        <i class="fas fa-file-code"></i>
+                        <h3>data.json</h3>
+                        <p>Clique no botão abaixo para baixar o arquivo com todos os dados.<br>Depois faça upload no GitHub para atualizar o site.</p>
+                        <button class="btn" onclick="exportJSON()"><i class="fas fa-download"></i> Baixar data.json</button>
+                    </div>
+                </div>
             </div>
         </main>
     </div>
 
-    <!-- Video Modal -->
+    <!-- Modal Vídeo -->
     <div class="modal" id="videoModal">
         <div class="modal-content">
             <div class="modal-header">
@@ -265,21 +209,21 @@
                     
                     <div class="image-preview" id="imagePreview">
                         <div style="text-align: center; color: var(--text-muted);">
-                            <i class="fas fa-image" style="font-size: 2rem; margin-bottom: 0.5rem;"></i>
+                            <i class="fas fa-image" style="font-size: 2rem;"></i>
                             <p>Pré-visualização da capa</p>
                         </div>
                     </div>
 
                     <div class="form-group">
-                        <label>URL da Imagem (Capa)</label>
-                        <input type="url" id="videoImage" class="form-control" placeholder="https://..." onchange="previewImage()" required>
-                        <p class="form-hint">Use links diretos (Imgur, GitHub Raw, etc)</p>
+                        <label>URL da Imagem de Capa (JPG/PNG)</label>
+                        <input type="url" id="videoImage" class="form-control" placeholder="https://i.imgur.com/xxxxx.jpg" onchange="previewImage()" required>
+                        <p class="form-hint">Hospede sua imagem no <a href="https://imgur.com/upload" target="_blank" style="color: var(--primary-color);">Imgur</a> ou <a href="https://imgbb.com/" target="_blank" style="color: var(--primary-color);">ImgBB</a> e cole o link direto aqui</p>
                     </div>
 
                     <div class="form-row">
                         <div class="form-group">
                             <label>Título do Vídeo</label>
-                            <input type="text" id="videoTitle" class="form-control" required>
+                            <input type="text" id="videoTitle" class="form-control" placeholder="Ex: Casamento João e Maria" required>
                         </div>
                         <div class="form-group">
                             <label>Categoria</label>
@@ -289,23 +233,24 @@
                                 <option value="evento">Evento</option>
                                 <option value="fashion">Fashion</option>
                                 <option value="gastronomia">Gastronomia</option>
+                                <option value="beleza">Beleza</option>
                             </select>
                         </div>
                     </div>
 
                     <div class="form-group">
-                        <label>Link do Instagram (Embed)</label>
-                        <input type="url" id="videoUrl" class="form-control" placeholder="https://www.instagram.com/reel/..." required>
-                        <p class="form-hint">Cole o link do Reel/Post. Ex: https://www.instagram.com/reel/C-xyz/embed</p>
+                        <label>Link do Instagram (opcional)</label>
+                        <input type="url" id="videoUrl" class="form-control" placeholder="https://www.instagram.com/reel/xxxxx/">
+                        <p class="form-hint">Cole o link do Reel. Quando clicar no vídeo no site, abrirá o Instagram</p>
                     </div>
 
                     <div class="form-row">
                         <div class="form-group">
-                            <label>Visualizações (Texto)</label>
+                            <label>Visualizações</label>
                             <input type="text" id="videoViews" class="form-control" placeholder="Ex: 125K">
                         </div>
                         <div class="form-group">
-                            <label>Curtidas (Texto)</label>
+                            <label>Curtidas</label>
                             <input type="text" id="videoLikes" class="form-control" placeholder="Ex: 8.5K">
                         </div>
                     </div>
@@ -316,7 +261,7 @@
         </div>
     </div>
 
-    <!-- Image Edit Modal -->
+    <!-- Modal Imagem -->
     <div class="modal" id="imageModal">
         <div class="modal-content">
             <div class="modal-header">
@@ -326,25 +271,16 @@
             <div class="modal-body">
                 <form id="imageForm" onsubmit="handleImageSubmit(event)">
                     <input type="hidden" id="imageKey">
-                    
-                    <div class="image-preview" id="siteImagePreview">
-                        <div style="text-align: center; color: var(--text-muted);">
-                            <i class="fas fa-image" style="font-size: 2rem; margin-bottom: 0.5rem;"></i>
-                            <p>Pré-visualização</p>
-                        </div>
-                    </div>
-
+                    <div class="image-preview" id="siteImagePreview"></div>
                     <div class="form-group">
                         <label>Nova URL da Imagem</label>
                         <input type="url" id="newImageUrl" class="form-control" placeholder="https://..." onchange="previewSiteImage()" required>
                     </div>
-
                     <div class="form-group">
                         <label>Nome da Seção</label>
                         <input type="text" id="imageName" class="form-control" readonly style="background: rgba(255,255,255,0.05);">
                     </div>
-
-                    <button type="submit" class="btn">Atualizar Imagem no Site</button>
+                    <button type="submit" class="btn">Atualizar Imagem</button>
                 </form>
             </div>
         </div>
@@ -354,32 +290,29 @@
     <div class="toast" id="toast"></div>
 
     <script>
-        // --- CREDENCIAIS (NÃO EXIBIDAS NOS PLACEHOLDERS) ---
+        // ===== CREDENCIAIS =====
         const ADMIN_USER = 'eduardoraul2000.er@gmail.com';
-        const ADMIN_PASS = '$Dolar2026';
+        const ADMIN_PASS = 'Dolar2026';
 
-        // Dados Iniciais do Portfólio
         let portfolioData = [];
 
-        // Configuração das Imagens do Site (IDs que correspondem ao index.html)
         const siteImagesConfig = {
-            'img-hero': { name: 'Imagem Hero (Fundo Principal)', current: 'https://images.unsplash.com/photo-1536240478700-b869070f9279?q=80&w=2070&auto=format&fit=crop' },
-            'img-about': { name: 'Imagem Seção Sobre Nós', current: 'https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?q=80&w=2070&auto=format&fit=crop' },
-            'img-serv-1': { name: 'Serviço: Comerciais', current: 'https://images.unsplash.com/photo-1574717024653-61fd2cf4d44c?q=80&w=2070&auto=format&fit=crop' },
-            'img-serv-2': { name: 'Serviço: Drone', current: 'https://images.unsplash.com/photo-1506947411487-a56738267384?q=80&w=2070&auto=format&fit=crop' },
-            'img-serv-3': { name: 'Serviço: Eventos', current: 'https://images.unsplash.com/photo-1517457373958-b7bdd4587205?q=80&w=2069&auto=format&fit=crop' },
-            'img-serv-4': { name: 'Serviço: Fashion', current: 'https://images.unsplash.com/photo-1558171813-4c088753af8f?q=80&w=2069&auto=format&fit=crop' },
-            'img-serv-5': { name: 'Serviço: Gastronomia', current: 'https://images.unsplash.com/photo-1551218808-94e220e084d2?q=80&w=1974&auto=format&fit=crop' },
-            'img-serv-6': { name: 'Serviço: Beleza', current: 'https://images.unsplash.com/photo-1596462502278-27bfdd403348?q=80&w=1936&auto=format&fit=crop' }
+            'img-hero': { name: 'Imagem Hero (Fundo Principal)', current: 'https://images.unsplash.com/photo-1536240478700-b869070f9279?w=1200' },
+            'img-about': { name: 'Imagem Seção Sobre Nós', current: 'https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?w=800' },
+            'img-serv-1': { name: 'Serviço: Comerciais', current: 'https://images.unsplash.com/photo-1574717024653-61fd2cf4d44c?w=600' },
+            'img-serv-2': { name: 'Serviço: Drone', current: 'https://images.unsplash.com/photo-1506947411487-a56738267384?w=600' },
+            'img-serv-3': { name: 'Serviço: Eventos', current: 'https://images.unsplash.com/photo-1517457373958-b7bdd4587205?w=600' },
+            'img-serv-4': { name: 'Serviço: Fashion', current: 'https://images.unsplash.com/photo-1558171813-4c088753af8f?w=600' },
+            'img-serv-5': { name: 'Serviço: Gastronomia', current: 'https://images.unsplash.com/photo-1551218808-94e220e084d2?w=600' },
+            'img-serv-6': { name: 'Serviço: Beleza', current: 'https://images.unsplash.com/photo-1596462502278-27bfdd403348?w=600' }
         };
 
-        // --- FUNÇÕES DE ARMAZENAMENTO (LocalStorage) ---
+        // ===== FUNÇÕES DE ARMAZENAMENTO =====
         function loadData() {
             const savedPortfolio = localStorage.getItem('ufaPortfolio');
             if (savedPortfolio) {
-                try { portfolioData = JSON.parse(savedPortfolio); } catch(e) { console.error("Erro ao carregar portfolio", e); }
+                try { portfolioData = JSON.parse(savedPortfolio); } catch(e) {}
             }
-
             const savedImages = localStorage.getItem('ufaSiteImages');
             if (savedImages) {
                 try { 
@@ -389,13 +322,12 @@
                             siteImagesConfig[key].current = parsedImages[key];
                         }
                     }
-                } catch(e) { console.error("Erro ao carregar imagens", e); }
+                } catch(e) {}
             }
         }
 
         function saveData() {
             localStorage.setItem('ufaPortfolio', JSON.stringify(portfolioData));
-            
             const imagesToSave = {};
             for (let key in siteImagesConfig) {
                 imagesToSave[key] = siteImagesConfig[key].current;
@@ -403,20 +335,20 @@
             localStorage.setItem('ufaSiteImages', JSON.stringify(imagesToSave));
         }
 
-        // --- LÓGICA DE LOGIN ---
+        // ===== LOGIN =====
         function handleLogin(e) {
             e.preventDefault();
-            const user = document.getElementById('username').value;
-            const pass = document.getElementById('password').value;
+            const userInput = document.getElementById('username').value.trim().toLowerCase();
+            const passInput = document.getElementById('password').value;
 
-            if (user === ADMIN_USER && pass === ADMIN_PASS) {
+            if (userInput === ADMIN_USER.toLowerCase() && passInput === ADMIN_PASS) {
                 document.getElementById('loginScreen').style.display = 'none';
-                document.getElementById('adminDashboard').style.display = 'block'; 
+                document.getElementById('adminDashboard').style.display = 'block';
                 loadData();
                 updateDashboard();
                 renderPortfolioGrid();
                 renderSiteImages();
-                showToast('Bem-vindo, Administrador!');
+                showToast('Bem-vindo!');
             } else {
                 showToast('Usuário ou senha incorretos!', true);
             }
@@ -429,75 +361,69 @@
             document.getElementById('password').value = '';
         }
 
-        // --- NAVEGAÇÃO ---
+        // ===== NAVEGAÇÃO =====
         function showSection(section) {
             document.getElementById('dashboardSection').style.display = 'none';
             document.getElementById('portfolioSection').style.display = 'none';
             document.getElementById('imagesSection').style.display = 'none';
-            
+            document.getElementById('exportSection').style.display = 'none';
             document.querySelectorAll('.sidebar-nav button').forEach(b => b.classList.remove('active'));
-            
             document.getElementById(section + 'Section').style.display = 'block';
-            
             event.currentTarget.classList.add('active');
-
             if (section === 'dashboard') updateDashboard();
         }
 
-        // --- PORTFÓLIO ---
         function updateDashboard() {
             document.getElementById('totalVideos').textContent = portfolioData.length;
         }
 
+        // ===== PORTFÓLIO =====
         function renderPortfolioGrid() {
             const grid = document.getElementById('portfolioGrid');
-            grid.innerHTML = '';
-            
-            portfolioData.forEach(item => {
-                const div = document.createElement('div');
-                div.className = 'portfolio-admin-item';
-                div.innerHTML = `
-                    <img src="${item.image}" alt="${item.title}">
+            if (portfolioData.length === 0) {
+                grid.innerHTML = '<p style="color: var(--text-gray); text-align: center; padding: 2rem;">Nenhum vídeo adicionado ainda. Clique em "Adicionar Vídeo" para começar.</p>';
+                return;
+            }
+            grid.innerHTML = portfolioData.map(item => `
+                <div class="portfolio-admin-item">
+                    <img src="${item.image}" alt="${item.title}" onerror="this.src='https://via.placeholder.com/400x300?text=Imagem'">
                     <div class="portfolio-admin-info">
                         <h4>${item.title}</h4>
-                        <p><i class="fas fa-eye"></i> ${item.views} | <i class="fas fa-heart"></i> ${item.likes}</p>
+                        <p><i class="fas fa-eye"></i> ${item.views || '0'} | <i class="fas fa-heart"></i> ${item.likes || '0'}</p>
                         <div class="portfolio-admin-actions">
                             <button class="btn-small btn-edit" onclick="editVideo(${item.id})"><i class="fas fa-edit"></i></button>
                             <button class="btn-small btn-delete" onclick="deleteVideo(${item.id})"><i class="fas fa-trash"></i></button>
                         </div>
                     </div>
-                `;
-                grid.appendChild(div);
-            });
+                </div>
+            `).join('');
         }
 
         function openAddModal() {
             document.getElementById('videoForm').reset();
             document.getElementById('videoId').value = '';
             document.getElementById('modalTitle').textContent = 'Adicionar Vídeo';
-            document.getElementById('imagePreview').innerHTML = '<div style="text-align:center;color:var(--text-muted);"><i class="fas fa-image" style="font-size:2rem;"></i></div>';
+            document.getElementById('imagePreview').innerHTML = '<div style="text-align:center;color:var(--text-muted);"><i class="fas fa-image" style="font-size:2rem;"></i><p>Pré-visualização da capa</p></div>';
             document.getElementById('videoModal').classList.add('active');
         }
 
         function editVideo(id) {
             const video = portfolioData.find(v => v.id === id);
             if (!video) return;
-            
             document.getElementById('videoId').value = video.id;
             document.getElementById('videoTitle').value = video.title;
             document.getElementById('videoCategory').value = video.category;
             document.getElementById('videoImage').value = video.image;
-            document.getElementById('videoUrl').value = video.video;
-            document.getElementById('videoViews').value = video.views;
-            document.getElementById('videoLikes').value = video.likes;
+            document.getElementById('videoUrl').value = video.video || '';
+            document.getElementById('videoViews').value = video.views || '';
+            document.getElementById('videoLikes').value = video.likes || '';
             document.getElementById('modalTitle').textContent = 'Editar Vídeo';
-            
             previewImage();
             document.getElementById('videoModal').classList.add('active');
         }
 
         function deleteVideo(id) {
-            if (!confirm('Tem certeza que deseja excluir este vídeo?')) return;
+            if (!confirm('Excluir este vídeo?')) return;
             portfolioData = portfolioData.filter(v => v.id !== id);
             saveData();
             renderPortfolioGrid();
@@ -513,51 +439,43 @@
                 title: document.getElementById('videoTitle').value,
                 category: document.getElementById('videoCategory').value,
                 image: document.getElementById('videoImage').value,
-                video: document.getElementById('videoUrl').value,
+                video: document.getElementById('videoUrl').value || '',
                 views: document.getElementById('videoViews').value || '0',
                 likes: document.getElementById('videoLikes').value || '0'
             };
-            
             if (id) {
                 const index = portfolioData.findIndex(v => v.id === parseInt(id));
                 if (index !== -1) portfolioData[index] = video;
             } else {
                 portfolioData.push(video);
             }
-            
             saveData();
             renderPortfolioGrid();
             updateDashboard();
             closeModal();
-            showToast('Vídeo salvo com sucesso!');
+            showToast('Vídeo salvo! Vá em "Exportar JSON" para baixar o arquivo.');
         }
 
         function previewImage() {
             const url = document.getElementById('videoImage').value;
-            const preview = document.getElementById('imagePreview');
             if (url) {
-                preview.innerHTML = `<img src="${url}" alt="Preview" onerror="this.parentElement.innerHTML='Erro ao carregar'">`;
+                document.getElementById('imagePreview').innerHTML = `<img src="${url}" alt="Preview" onerror="this.parentElement.innerHTML='<p style=\\'color:var(--danger-color);padding:1rem;text-align:center;\\'>Erro ao carregar imagem. Verifique o link.</p>'">`;
             }
         }
 
-        // --- IMAGENS DO SITE ---
+        // ===== IMAGENS DO SITE =====
         function renderSiteImages() {
             const grid = document.getElementById('siteImagesGrid');
-            grid.innerHTML = '';
-            
-            Object.entries(siteImagesConfig).forEach(([key, data]) => {
-                const div = document.createElement('div');
-                div.className = 'site-image-card';
-                div.innerHTML = `
+            grid.innerHTML = Object.entries(siteImagesConfig).map(([key, data]) => `
+                <div class="site-image-card">
                     <img src="${data.current}" alt="${data.name}">
                     <div class="site-image-info">
                         <h4>${data.name}</h4>
                         <p>ID: ${key}</p>
-                        <button class="btn-small btn-edit" onclick="editImage('${key}')" style="width:100%; margin-top:0.5rem;">Atualizar Imagem</button>
+                        <button class="btn-small btn-edit" onclick="editImage('${key}')" style="width:100%; margin-top:0.5rem;">Atualizar</button>
                     </div>
-                `;
-                grid.appendChild(div);
-            });
+                </div>
+            `).join('');
         }
 
         function editImage(key) {
@@ -565,18 +483,14 @@
             document.getElementById('imageKey').value = key;
             document.getElementById('imageName').value = image.name;
             document.getElementById('newImageUrl').value = '';
-            
-            const preview = document.getElementById('siteImagePreview');
-            preview.innerHTML = `<img src="${image.current}" alt="${image.name}">`;
-            
+            document.getElementById('siteImagePreview').innerHTML = `<img src="${image.current}" alt="${image.name}">`;
             document.getElementById('imageModal').classList.add('active');
         }
 
         function previewSiteImage() {
             const url = document.getElementById('newImageUrl').value;
-            const preview = document.getElementById('siteImagePreview');
             if (url) {
-                preview.innerHTML = `<img src="${url}" alt="Preview" onerror="this.parentElement.innerHTML='Erro ao carregar'">`;
+                document.getElementById('siteImagePreview').innerHTML = `<img src="${url}" alt="Preview" onerror="this.parentElement.innerHTML='<p style=\\'color:var(--danger-color);padding:1rem;text-align:center;\\'>Erro ao carregar</p>'">`;
             }
         }
 
@@ -584,30 +498,47 @@
             e.preventDefault();
             const key = document.getElementById('imageKey').value;
             const newUrl = document.getElementById('newImageUrl').value;
-            
             if (newUrl && siteImagesConfig[key]) {
                 siteImagesConfig[key].current = newUrl;
                 saveData();
                 renderSiteImages();
                 closeImageModal();
-                showToast('Imagem atualizada! Vá ao site principal para ver.');
+                showToast('Imagem atualizada!');
             }
         }
 
-        // --- UTILITÁRIOS ---
-        function closeModal() {
-            document.getElementById('videoModal').classList.remove('active');
+        // ===== EXPORTAR JSON =====
+        function exportJSON() {
+            const data = {
+                portfolio: portfolioData,
+                siteImages: {}
+            };
+            for (let key in siteImagesConfig) {
+                data.siteImages[key] = siteImagesConfig[key].current;
+            }
+            
+            const blob = new Blob([JSON.stringify(data, null, 2)], { type: 'application/json' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = 'data.json';
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            URL.revokeObjectURL(url);
+            showToast('Arquivo data.json baixado! Faça upload no GitHub.');
         }
-        function closeImageModal() {
-            document.getElementById('imageModal').classList.remove('active');
-        }
+
+        // ===== UTILITÁRIOS =====
+        function closeModal() { document.getElementById('videoModal').classList.remove('active'); }
+        function closeImageModal() { document.getElementById('imageModal').classList.remove('active'); }
 
         function showToast(message, isError = false) {
             const toast = document.getElementById('toast');
             toast.textContent = message;
             toast.className = 'toast' + (isError ? ' error' : '');
             toast.classList.add('show');
-            setTimeout(() => toast.classList.remove('show'), 3000);
+            setTimeout(() => toast.classList.remove('show'), 4000);
         }
 
         // Inicialização
