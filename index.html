@@ -6,12 +6,9 @@
     <title>UFA FILM | Produção Audiovisual de Alto Padrão</title>
     <meta name="description" content="UFA FILM - Produção Audiovisual de Alto Padrão. Cinema, Drone, Comerciais e Eventos filmados em 6K Open Gate.">
     
-    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Orbitron:wght@400;500;700;900&display=swap" rel="stylesheet">
-    
-    <!-- Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
     <style>
@@ -172,13 +169,11 @@
             font-size: 1.15rem; color: var(--text-gray); line-height: 1.8;
             border-left: 4px solid var(--primary-color); padding: 2rem;
             background: rgba(0, 243, 255, 0.03); border-radius: 8px;
-            opacity: 1 !important;
         }
         .services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2.5rem; max-width: 1400px; margin: 0 auto; }
         .service-card {
             background: rgba(10, 10, 10, 0.98); border: 1px solid var(--glass-border);
             overflow: hidden; transition: all 0.5s ease; position: relative;
-            opacity: 1 !important; visibility: visible !important;
         }
         .service-card::before {
             content: ''; position: absolute; top: 0; left: 0; width: 4px; height: 100%;
@@ -189,7 +184,7 @@
         .service-image { width: 100%; height: 220px; overflow: hidden; }
         .service-image img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s ease; }
         .service-card:hover .service-image img { transform: scale(1.1); }
-        .service-content { padding: 2.5rem; opacity: 1 !important; }
+        .service-content { padding: 2.5rem; }
         .service-icon { font-size: 2.5rem; color: var(--secondary-color); margin-bottom: 1.5rem; }
         .service-card h3 { font-size: 1.3rem; margin-bottom: 1.2rem; color: var(--text-main); }
         .service-card p { font-size: 0.95rem; color: var(--text-gray); line-height: 1.8; margin-bottom: 1.5rem; }
@@ -203,7 +198,6 @@
             max-width: 900px; margin: 0 auto 5rem; text-align: center;
             font-size: 1.1rem; color: var(--text-gray); line-height: 1.8;
             padding-bottom: 2rem; border-bottom: 1px solid var(--glass-border);
-            opacity: 1 !important;
         }
         .process-intro h3 { color: var(--secondary-color); font-size: 1.8rem; margin-bottom: 1rem; }
         .process-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 2rem; max-width: 1400px; margin: 0 auto; }
@@ -212,7 +206,6 @@
             border: 1px solid var(--glass-border); position: relative;
             transition: all 0.4s ease; background: rgba(10, 10, 10, 0.98);
             display: flex; flex-direction: column; min-height: 320px;
-            opacity: 1 !important; visibility: visible !important;
         }
         .process-step:hover { border-color: var(--secondary-color); background: rgba(212, 175, 55, 0.05); transform: translateY(-10px); }
         .process-step::before {
@@ -229,14 +222,14 @@
 
         /* Portfolio */
         .portfolio { background: var(--bg-color); }
-        .portfolio-filters { display: flex; justify-content: center; gap: 1rem; margin-bottom: 4rem; flex-wrap: wrap; }
+        .portfolio-filters { display: flex; justify-content: center; gap: 0.8rem; margin-bottom: 4rem; flex-wrap: wrap; }
         .filter-btn {
-            padding: 1rem 2.5rem; background: transparent; border: 1px solid var(--glass-border);
-            color: var(--text-gray); font-family: 'Orbitron', sans-serif; font-size: 0.8rem;
-            text-transform: uppercase; letter-spacing: 0.15em; cursor: pointer; transition: all 0.4s ease;
+            padding: 0.8rem 1.5rem; background: transparent; border: 1px solid var(--glass-border);
+            color: var(--text-gray); font-family: 'Orbitron', sans-serif; font-size: 0.7rem;
+            text-transform: uppercase; letter-spacing: 0.1em; cursor: pointer; transition: all 0.4s ease;
         }
         .filter-btn:hover, .filter-btn.active { border-color: var(--primary-color); color: var(--primary-color); background: var(--glass-border); }
-        .portfolio-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(350px, 1fr)); gap: 2rem; max-width: 1400px; margin: 0 auto; }
+        .portfolio-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 2rem; max-width: 1400px; margin: 0 auto; }
         .portfolio-item { position: relative; aspect-ratio: 1/1; overflow: hidden; cursor: pointer; border: 1px solid transparent; transition: all 0.4s ease; background: var(--surface-color); }
         .portfolio-item:hover { border-color: var(--secondary-color); transform: translateY(-5px); }
         .portfolio-item img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.8s ease; filter: grayscale(40%); }
@@ -254,11 +247,8 @@
             transform: translateY(20px); opacity: 0; transition: all 0.4s ease; z-index: 5;
         }
         .portfolio-item:hover .portfolio-overlay { transform: translateY(0); opacity: 1; }
-        .portfolio-category { font-size: 0.75rem; color: var(--secondary-color); text-transform: uppercase; letter-spacing: 0.15em; display: block; margin-bottom: 0.5rem; }
-        .portfolio-title { font-size: 1.3rem; margin-bottom: 0.5rem; line-height: 1.2; }
-        .portfolio-meta { display: flex; gap: 1.5rem; margin-top: 1rem; }
-        .portfolio-meta span { font-size: 0.8rem; color: var(--text-gray); display: flex; align-items: center; gap: 0.5rem; }
-        .portfolio-meta span i { color: var(--secondary-color); }
+        .portfolio-category { font-size: 0.7rem; color: var(--secondary-color); text-transform: uppercase; letter-spacing: 0.15em; display: block; margin-bottom: 0.5rem; }
+        .portfolio-title { font-size: 1.2rem; margin-bottom: 0.5rem; line-height: 1.2; }
 
         /* Instagram Section */
         .instagram-section {
@@ -276,154 +266,58 @@
             height: 1px;
             background: linear-gradient(90deg, transparent, var(--secondary-color), transparent);
         }
-        .instagram-header {
-            text-align: center;
-            margin-bottom: 4rem;
-        }
-        .instagram-header .section-label {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 1rem;
-        }
+        .instagram-header { text-align: center; margin-bottom: 4rem; }
+        .instagram-header .section-label { display: flex; align-items: center; justify-content: center; gap: 1rem; }
         .instagram-header .section-label i {
             font-size: 1.5rem;
             background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
-        .instagram-profile {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 2rem;
-            margin-bottom: 4rem;
-            flex-wrap: wrap;
-        }
+        .instagram-profile { display: flex; align-items: center; justify-content: center; gap: 2rem; margin-bottom: 4rem; flex-wrap: wrap; }
         .instagram-avatar {
-            width: 120px;
-            height: 120px;
-            border-radius: 50%;
-            border: 3px solid transparent;
+            width: 120px; height: 120px; border-radius: 50%; border: 3px solid transparent;
             background: linear-gradient(var(--surface-color), var(--surface-color)) padding-box,
                         linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888) border-box;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 3rem;
-            color: var(--text-main);
+            display: flex; align-items: center; justify-content: center;
+            font-size: 3rem; color: var(--text-main);
         }
         .instagram-info h3 {
-            font-size: 2rem;
-            margin-bottom: 0.5rem;
+            font-size: 2rem; margin-bottom: 0.5rem;
             background: linear-gradient(90deg, #ffffff, var(--secondary-color));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
         }
-        .instagram-info .handle {
-            color: var(--primary-color);
-            font-size: 1.1rem;
-            margin-bottom: 1rem;
-        }
-        .instagram-info p {
-            color: var(--text-gray);
-            max-width: 400px;
-            line-height: 1.7;
-        }
+        .instagram-info .handle { color: var(--primary-color); font-size: 1.1rem; margin-bottom: 1rem; }
+        .instagram-info p { color: var(--text-gray); max-width: 400px; line-height: 1.7; }
         .instagram-follow-btn {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.8rem;
+            display: inline-flex; align-items: center; gap: 0.8rem;
             padding: 1rem 2.5rem;
             background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
-            color: white;
-            font-family: 'Orbitron', sans-serif;
-            font-size: 0.85rem;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 0.15em;
-            border: none;
-            border-radius: 50px;
-            cursor: pointer;
-            transition: all 0.4s ease;
-            margin-top: 1.5rem;
+            color: white; font-family: 'Orbitron', sans-serif; font-size: 0.85rem; font-weight: 600;
+            text-transform: uppercase; letter-spacing: 0.15em; border: none; border-radius: 50px;
+            cursor: pointer; transition: all 0.4s ease; margin-top: 1.5rem;
         }
-        .instagram-follow-btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 10px 30px rgba(220, 39, 67, 0.4);
-        }
-        .instagram-grid {
-            display: grid;
-            grid-template-columns: repeat(6, 1fr);
-            gap: 1rem;
-            max-width: 1400px;
-            margin: 0 auto;
-        }
-        .instagram-item {
-            position: relative;
-            aspect-ratio: 1/1;
-            overflow: hidden;
-            border-radius: 8px;
-            cursor: pointer;
-            transition: all 0.4s ease;
-        }
-        .instagram-item:hover {
-            transform: scale(1.05);
-            z-index: 10;
-        }
-        .instagram-item img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.6s ease;
-        }
-        .instagram-item:hover img {
-            transform: scale(1.1);
-        }
+        .instagram-follow-btn:hover { transform: translateY(-3px); box-shadow: 0 10px 30px rgba(220, 39, 67, 0.4); }
+        .instagram-grid { display: grid; grid-template-columns: repeat(6, 1fr); gap: 1rem; max-width: 1400px; margin: 0 auto; }
+        .instagram-item { position: relative; aspect-ratio: 1/1; overflow: hidden; border-radius: 8px; cursor: pointer; transition: all 0.4s ease; }
+        .instagram-item:hover { transform: scale(1.05); z-index: 10; }
+        .instagram-item img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s ease; }
+        .instagram-item:hover img { transform: scale(1.1); }
         .instagram-item-overlay {
-            position: absolute;
-            inset: 0;
-            background: rgba(0, 0, 0, 0.7);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 1.5rem;
-            opacity: 0;
-            transition: opacity 0.4s ease;
+            position: absolute; inset: 0; background: rgba(0, 0, 0, 0.7);
+            display: flex; align-items: center; justify-content: center; gap: 1.5rem;
+            opacity: 0; transition: opacity 0.4s ease;
         }
-        .instagram-item:hover .instagram-item-overlay {
-            opacity: 1;
-        }
-        .instagram-item-overlay span {
-            color: white;
-            font-size: 0.9rem;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-        .instagram-item-overlay i {
-            font-size: 1.2rem;
-        }
+        .instagram-item:hover .instagram-item-overlay { opacity: 1; }
+        .instagram-item-overlay span { color: white; font-size: 0.9rem; display: flex; align-items: center; gap: 0.5rem; }
+        .instagram-item-overlay i { font-size: 1.2rem; }
         .instagram-item.type-video::after {
-            content: '\f04b';
-            font-family: 'Font Awesome 6 Free';
-            font-weight: 900;
-            position: absolute;
-            top: 1rem;
-            right: 1rem;
-            color: white;
-            font-size: 1rem;
-            text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+            content: '\f04b'; font-family: 'Font Awesome 6 Free'; font-weight: 900;
+            position: absolute; top: 1rem; right: 1rem; color: white;
+            font-size: 1rem; text-shadow: 0 2px 4px rgba(0,0,0,0.5);
         }
-        .instagram-cta {
-            text-align: center;
-            margin-top: 4rem;
-        }
-        .instagram-cta p {
-            color: var(--text-gray);
-            margin-bottom: 2rem;
-            font-size: 1.1rem;
-        }
+        .instagram-cta { text-align: center; margin-top: 4rem; }
+        .instagram-cta p { color: var(--text-gray); margin-bottom: 2rem; font-size: 1.1rem; }
 
         /* Contact */
         .contact { background: linear-gradient(to bottom, var(--bg-color), var(--surface-color)); }
@@ -491,6 +385,7 @@
             .instagram-grid { grid-template-columns: repeat(2, 1fr); }
             .instagram-profile { flex-direction: column; text-align: center; }
             .instagram-info p { margin: 0 auto; }
+            .filter-btn { padding: 0.6rem 1rem; font-size: 0.6rem; }
         }
         @media (max-width: 480px) {
             .instagram-grid { grid-template-columns: 1fr; }
@@ -566,7 +461,7 @@
         </div>
     </section>
 
-    <!-- Services - 6 CARDS -->
+    <!-- Services -->
     <section class="services" id="services">
         <div class="section-header">
             <span class="section-label">Nossos Serviços</span>
@@ -579,7 +474,7 @@
                 <div class="service-content">
                     <i class="fas fa-video service-icon"></i>
                     <h3>Comerciais e Publicidade</h3>
-                    <p>Filmes publicitários de alto impacto para TV, digital e cinema. Criamos narrativas visuais que convertem e engajam audiências.</p>
+                    <p>Filmes publicitários de alto impacto para TV, digital e cinema.</p>
                     <ul class="service-list">
                         <li><i class="fas fa-caret-right"></i> Produção 4K/6K</li>
                         <li><i class="fas fa-caret-right"></i> Roteiro criativo</li>
@@ -592,7 +487,7 @@
                 <div class="service-content">
                     <i class="fas fa-helicopter service-icon"></i>
                     <h3>Imagens Aéreas</h3>
-                    <p>Capturas aéreas cinematográficas com perspectivas únicas que elevam a produção visual a outro patamar de grandiosidade.</p>
+                    <p>Capturas aéreas cinematográficas com perspectivas únicas.</p>
                     <ul class="service-list">
                         <li><i class="fas fa-caret-right"></i> Drones profissionais 4K</li>
                         <li><i class="fas fa-caret-right"></i> Pilotos certificados</li>
@@ -605,7 +500,7 @@
                 <div class="service-content">
                     <i class="fas fa-film service-icon"></i>
                     <h3>Cobertura de Eventos</h3>
-                    <p>Documentação audiovisual completa com qualidade cinematográfica. Preservamos momentos especiais com arte e técnica.</p>
+                    <p>Documentação audiovisual completa com qualidade cinematográfica.</p>
                     <ul class="service-list">
                         <li><i class="fas fa-caret-right"></i> Equipamento broadcast</li>
                         <li><i class="fas fa-caret-right"></i> Entrega em tempo real</li>
@@ -618,7 +513,7 @@
                 <div class="service-content">
                     <i class="fas fa-camera service-icon"></i>
                     <h3>Fashion Films</h3>
-                    <p>Filmes de moda sofisticados para marcas e designers que buscam expressar identidade e estilo através do audiovisual.</p>
+                    <p>Filmes de moda sofisticados para marcas e designers.</p>
                     <ul class="service-list">
                         <li><i class="fas fa-caret-right"></i> Direção de arte</li>
                         <li><i class="fas fa-caret-right"></i> Styling e cenografia</li>
@@ -631,7 +526,7 @@
                 <div class="service-content">
                     <i class="fas fa-utensils service-icon"></i>
                     <h3>Vídeos Gastronômicos</h3>
-                    <p>Food films que despertam sentidos através da culinária. Cada prato vira uma obra de arte audiovisual irresistível.</p>
+                    <p>Food films que despertam sentidos através da culinária.</p>
                     <ul class="service-list">
                         <li><i class="fas fa-caret-right"></i> Food styling</li>
                         <li><i class="fas fa-caret-right"></i> Iluminação especializada</li>
@@ -644,7 +539,7 @@
                 <div class="service-content">
                     <i class="fas fa-sparkles service-icon"></i>
                     <h3>Beleza e Cosméticos</h3>
-                    <p>Filmes para a indústria da beleza com conexão emocional. Destacamos a essência de cada produto e marca.</p>
+                    <p>Filmes para a indústria da beleza com conexão emocional.</p>
                     <ul class="service-list">
                         <li><i class="fas fa-caret-right"></i> Macro cinematográfico</li>
                         <li><i class="fas fa-caret-right"></i> High-speed filming</li>
@@ -655,7 +550,7 @@
         </div>
     </section>
 
-    <!-- Process - 4 ETAPAS -->
+    <!-- Process -->
     <section class="process" id="process">
         <div class="section-header">
             <span class="section-label">Nosso Processo</span>
@@ -663,24 +558,24 @@
         </div>
         <div class="process-intro">
             <h3>Nossa Metodologia</h3>
-            <p>Um processo estruturado em 4 etapas para garantir excelência e transparência em cada projeto desenvolvido.</p>
+            <p>Um processo estruturado em 4 etapas para garantir excelência em cada projeto.</p>
         </div>
         <div class="process-grid">
             <div class="process-step" data-step="01">
                 <h3>Descoberta</h3>
-                <p><strong>O início de tudo.</strong> Reunião de alinhamento para entender a visão do cliente, objetivos e público-alvo. Análise de concorrência e definição do tom visual que melhor comunica sua mensagem.</p>
+                <p><strong>O início de tudo.</strong> Reunião de alinhamento para entender a visão do cliente, objetivos e público-alvo.</p>
             </div>
             <div class="process-step" data-step="02">
                 <h3>Pré-Produção</h3>
-                <p><strong>Planejamento minucioso.</strong> Desenvolvimento de roteiro, storyboard detalhado, casting e logística completa. Seleção de equipamentos cinema-grade para qualidade 6K impecável.</p>
+                <p><strong>Planejamento minucioso.</strong> Desenvolvimento de roteiro, storyboard detalhado, casting e logística completa.</p>
             </div>
             <div class="process-step" data-step="03">
                 <h3>Produção</h3>
-                <p><strong>A magia acontece.</strong> Gravação com câmeras Open Gate, áudio profissional e direção de cena. Cada take é executado com precisão técnica e sensibilidade artística.</p>
+                <p><strong>A magia acontece.</strong> Gravação com câmeras Open Gate, áudio profissional e direção de cena.</p>
             </div>
             <div class="process-step" data-step="04">
                 <h3>Pós-Produção</h3>
-                <p><strong>A obra ganha vida.</strong> Edição dinâmica, motion graphics e Color Grading profissional cinematográfico. Masterização e entrega final em 4K/6K.</p>
+                <p><strong>A obra ganha vida.</strong> Edição dinâmica, motion graphics e Color Grading profissional cinematográfico.</p>
             </div>
         </div>
     </section>
@@ -693,12 +588,18 @@
         </div>
         <div class="portfolio-filters">
             <button class="filter-btn active" data-filter="all">Todos</button>
-            <button class="filter-btn" data-filter="comercial">Comerciais</button>
-            <button class="filter-btn" data-filter="drone">Drone</button>
-            <button class="filter-btn" data-filter="evento">Eventos</button>
-            <button class="filter-btn" data-filter="fashion">Fashion</button>
+            <button class="filter-btn" data-filter="comercial">Comercial</button>
+            <button class="filter-btn" data-filter="evento">Evento</button>
             <button class="filter-btn" data-filter="gastronomia">Gastronomia</button>
+            <button class="filter-btn" data-filter="fitness">Fitness</button>
+            <button class="filter-btn" data-filter="moda">Moda</button>
             <button class="filter-btn" data-filter="beleza">Beleza</button>
+            <button class="filter-btn" data-filter="esporte">Esporte</button>
+            <button class="filter-btn" data-filter="musical">Musical</button>
+            <button class="filter-btn" data-filter="documentario">Documentário</button>
+            <button class="filter-btn" data-filter="produto">Produto</button>
+            <button class="filter-btn" data-filter="lifestyle">Lifestyle</button>
+            <button class="filter-btn" data-filter="imobiliario">Imobiliário</button>
         </div>
         <div class="portfolio-grid" id="portfolioGrid"></div>
     </section>
@@ -780,7 +681,7 @@
     <section class="briefing" id="briefing">
         <div class="briefing-container">
             <h3>Briefing Completo</h3>
-            <p>Preencha o formulário para nos ajudar a entender suas necessidades e criar o projeto perfeito para você.</p>
+            <p>Preencha o formulário para nos ajudar a entender suas necessidades.</p>
             <form id="briefingForm">
                 <div class="form-row">
                     <div class="form-group"><input type="text" class="form-control" name="name" placeholder="Nome / Empresa" required></div>
@@ -790,23 +691,20 @@
                     <select class="form-select" name="projectType" required>
                         <option value="" disabled selected>Tipo de Projeto</option>
                         <option value="comercial">Comercial</option>
-                        <option value="drone">Drone</option>
                         <option value="evento">Evento</option>
-                        <option value="fashion">Fashion</option>
                         <option value="gastronomia">Gastronomia</option>
+                        <option value="fitness">Fitness</option>
+                        <option value="moda">Moda</option>
                         <option value="beleza">Beleza</option>
+                        <option value="esporte">Esporte</option>
+                        <option value="musical">Musical</option>
+                        <option value="documentario">Documentário</option>
+                        <option value="produto">Produto</option>
+                        <option value="lifestyle">Lifestyle</option>
+                        <option value="imobiliario">Imobiliário</option>
                     </select>
                 </div>
-                <div class="form-group">
-                    <select class="form-select" name="budget">
-                        <option value="" disabled selected>Orçamento Estimado</option>
-                        <option value="ate-5k">Até R$ 5.000</option>
-                        <option value="5k-15k">R$ 5.000 - R$ 15.000</option>
-                        <option value="15k-30k">R$ 15.000 - R$ 30.000</option>
-                        <option value="acima-30k">Acima de R$ 30.000</option>
-                    </select>
-                </div>
-                <div class="form-group"><textarea class="form-control" name="description" placeholder="Descreva seu projeto com detalhes..." rows="5" required></textarea></div>
+                <div class="form-group"><textarea class="form-control" name="description" placeholder="Descreva seu projeto..." rows="5" required></textarea></div>
                 <button type="submit" class="form-submit">Enviar Briefing</button>
             </form>
         </div>
@@ -830,16 +728,10 @@
     <!-- Scripts -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script>
-        // ============================================
-        // CONFIGURAÇÃO - ALTERE PARA SUA URL DO GITHUB
-        // ============================================
         const DATA_URL = 'data.json';
-        
-        // Portfolio Data
         let portfolioData = [];
         let instagramData = [];
 
-        // Load Data from JSON
         async function loadSiteData() {
             try {
                 const response = await fetch(DATA_URL + '?t=' + Date.now());
@@ -864,29 +756,10 @@
                 renderPortfolio();
                 renderInstagram();
             } catch (error) {
-                console.log('Usando dados padrão:', error);
-                loadFromLocalStorage();
+                console.log('Erro:', error);
             }
         }
 
-        function loadFromLocalStorage() {
-            const saved = localStorage.getItem('ufaPortfolio');
-            if (saved) { try { portfolioData = JSON.parse(saved); } catch(e) {} }
-            const savedImages = localStorage.getItem('ufaSiteImages');
-            if (savedImages) {
-                const images = JSON.parse(savedImages);
-                for (const [id, url] of Object.entries(images)) {
-                    const el = document.getElementById(id);
-                    if (el) el.src = url;
-                }
-            }
-            const savedInstagram = localStorage.getItem('ufaInstagram');
-            if (savedInstagram) { try { instagramData = JSON.parse(savedInstagram); } catch(e) {} }
-            renderPortfolio();
-            renderInstagram();
-        }
-
-        // Preloader Animation
         window.addEventListener('load', () => {
             loadSiteData();
             initNavigation();
@@ -908,7 +781,6 @@
               .to('.hero-cta', { opacity: 1, y: 0, duration: 0.8 }, '-=0.4');
         });
 
-        // Navigation
         function initNavigation() {
             window.addEventListener('scroll', () => {
                 document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 100);
@@ -928,14 +800,11 @@
                 anchor.addEventListener('click', function(e) {
                     e.preventDefault();
                     const target = document.querySelector(this.getAttribute('href'));
-                    if (target) {
-                        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                    }
+                    if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
                 });
             });
         }
 
-        // Portfolio
         function renderPortfolio(filter = 'all') {
             const grid = document.getElementById('portfolioGrid');
             const filtered = filter === 'all' ? portfolioData : portfolioData.filter(p => p.category === filter);
@@ -946,16 +815,12 @@
             }
             
             grid.innerHTML = filtered.map(item => `
-                <div class="portfolio-item" onclick="openVideo('${item.video || '#'}')" data-category="${item.category}">
-                    <img src="${item.image}" alt="${item.title}" onerror="this.src='https://images.unsplash.com/photo-1574717024653-61fd2cf4d44c?w=600'">
+                <div class="portfolio-item" onclick="openVideo('${item.video}')" data-category="${item.category}">
+                    <img src="${item.image}" alt="${item.title}" onerror="this.src='https://images.unsplash.com/photo-1536240478700-b869070f9279?w=600'">
                     <div class="portfolio-play"><i class="fas fa-play"></i></div>
                     <div class="portfolio-overlay">
                         <span class="portfolio-category">${item.category}</span>
                         <h4 class="portfolio-title">${item.title}</h4>
-                        <div class="portfolio-meta">
-                            <span><i class="fas fa-eye"></i> ${item.views || '0'}</span>
-                            <span><i class="fas fa-heart"></i> ${item.likes || '0'}</span>
-                        </div>
                     </div>
                 </div>
             `).join('');
@@ -972,11 +837,10 @@
         }
         
         function openVideo(url) {
-            if (!url || url === '#') return;
+            if (!url) return;
             window.open(url, '_blank');
         }
 
-        // Instagram
         function renderInstagram() {
             const grid = document.getElementById('instagramGrid');
             
@@ -989,27 +853,25 @@
             }
             
             grid.innerHTML = instagramData.map(item => `
-                <a href="${item.url || '#'}" target="_blank" class="instagram-item ${item.type === 'video' ? 'type-video' : ''}">
-                    <img src="${item.image}" alt="${item.title || 'Instagram'}" onerror="this.src='https://images.unsplash.com/photo-1536240478700-b869070f9279?w=400'">
+                <a href="${item.url}" target="_blank" class="instagram-item type-video">
+                    <img src="${item.image}" alt="Instagram" onerror="this.src='https://images.unsplash.com/photo-1536240478700-b869070f9279?w=400'">
                     <div class="instagram-item-overlay">
-                        <span><i class="fas fa-heart"></i> ${item.likes || ''}</span>
-                        ${item.type === 'video' ? '<span><i class="fas fa-play"></i></span>' : ''}
+                        <span><i class="fab fa-instagram"></i></span>
                     </div>
                 </a>
             `).join('');
         }
 
-        // Forms
         function initForms() {
             document.getElementById('contactForm').addEventListener('submit', function(e) {
                 e.preventDefault();
-                showToast('Mensagem enviada com sucesso! Entraremos em contato em breve.');
+                showToast('Mensagem enviada com sucesso!');
                 this.reset();
             });
             
             document.getElementById('briefingForm').addEventListener('submit', function(e) {
                 e.preventDefault();
-                showToast('Briefing enviado! Analisaremos seu projeto e retornaremos em breve.');
+                showToast('Briefing enviado! Entraremos em contato.');
                 this.reset();
             });
         }
