@@ -128,6 +128,7 @@
             font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.25em;
             position: relative; overflow: hidden; opacity: 0;
             background: rgba(0, 243, 255, 0.05); transition: all 0.4s ease;
+            cursor: pointer;
         }
         .hero-cta::before {
             content: ''; position: absolute; top: 0; left: -100%; width: 100%; height: 100%;
@@ -227,6 +228,7 @@
         .process-step p { color: var(--text-gray); font-size: 0.92rem; line-height: 1.75; text-align: left; flex-grow: 1; }
 
         /* Portfolio */
+        .portfolio { background: var(--bg-color); }
         .portfolio-filters { display: flex; justify-content: center; gap: 1rem; margin-bottom: 4rem; flex-wrap: wrap; }
         .filter-btn {
             padding: 1rem 2.5rem; background: transparent; border: 1px solid var(--glass-border);
@@ -252,13 +254,179 @@
             transform: translateY(20px); opacity: 0; transition: all 0.4s ease; z-index: 5;
         }
         .portfolio-item:hover .portfolio-overlay { transform: translateY(0); opacity: 1; }
+        .portfolio-category { font-size: 0.75rem; color: var(--secondary-color); text-transform: uppercase; letter-spacing: 0.15em; display: block; margin-bottom: 0.5rem; }
         .portfolio-title { font-size: 1.3rem; margin-bottom: 0.5rem; line-height: 1.2; }
         .portfolio-meta { display: flex; gap: 1.5rem; margin-top: 1rem; }
         .portfolio-meta span { font-size: 0.8rem; color: var(--text-gray); display: flex; align-items: center; gap: 0.5rem; }
         .portfolio-meta span i { color: var(--secondary-color); }
 
+        /* Instagram Section */
+        .instagram-section {
+            background: var(--surface-color);
+            padding: 8rem 5%;
+            position: relative;
+            overflow: hidden;
+        }
+        .instagram-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--secondary-color), transparent);
+        }
+        .instagram-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+        .instagram-header .section-label {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem;
+        }
+        .instagram-header .section-label i {
+            font-size: 1.5rem;
+            background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .instagram-profile {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 4rem;
+            flex-wrap: wrap;
+        }
+        .instagram-avatar {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            border: 3px solid transparent;
+            background: linear-gradient(var(--surface-color), var(--surface-color)) padding-box,
+                        linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888) border-box;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            color: var(--text-main);
+        }
+        .instagram-info h3 {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+            background: linear-gradient(90deg, #ffffff, var(--secondary-color));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .instagram-info .handle {
+            color: var(--primary-color);
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+        }
+        .instagram-info p {
+            color: var(--text-gray);
+            max-width: 400px;
+            line-height: 1.7;
+        }
+        .instagram-follow-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.8rem;
+            padding: 1rem 2.5rem;
+            background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+            color: white;
+            font-family: 'Orbitron', sans-serif;
+            font-size: 0.85rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.4s ease;
+            margin-top: 1.5rem;
+        }
+        .instagram-follow-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(220, 39, 67, 0.4);
+        }
+        .instagram-grid {
+            display: grid;
+            grid-template-columns: repeat(6, 1fr);
+            gap: 1rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        .instagram-item {
+            position: relative;
+            aspect-ratio: 1/1;
+            overflow: hidden;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.4s ease;
+        }
+        .instagram-item:hover {
+            transform: scale(1.05);
+            z-index: 10;
+        }
+        .instagram-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s ease;
+        }
+        .instagram-item:hover img {
+            transform: scale(1.1);
+        }
+        .instagram-item-overlay {
+            position: absolute;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.7);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1.5rem;
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+        .instagram-item:hover .instagram-item-overlay {
+            opacity: 1;
+        }
+        .instagram-item-overlay span {
+            color: white;
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .instagram-item-overlay i {
+            font-size: 1.2rem;
+        }
+        .instagram-item.type-video::after {
+            content: '\f04b';
+            font-family: 'Font Awesome 6 Free';
+            font-weight: 900;
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            color: white;
+            font-size: 1rem;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+        }
+        .instagram-cta {
+            text-align: center;
+            margin-top: 4rem;
+        }
+        .instagram-cta p {
+            color: var(--text-gray);
+            margin-bottom: 2rem;
+            font-size: 1.1rem;
+        }
+
         /* Contact */
-        .contact { background: linear-gradient(to bottom, var(--surface-color), var(--bg-color)); }
+        .contact { background: linear-gradient(to bottom, var(--bg-color), var(--surface-color)); }
         .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; max-width: 1400px; margin: 0 auto; }
         .contact-info h3 { font-size: 2rem; margin-bottom: 2rem; }
         .contact-info > p { color: var(--text-gray); font-size: 1.1rem; line-height: 1.9; margin-bottom: 3rem; }
@@ -302,8 +470,16 @@
         .toast i { color: var(--secondary-color); margin-right: 0.5rem; }
 
         /* Responsive */
-        @media (max-width: 1200px) { .process-grid { grid-template-columns: repeat(2, 1fr); } }
-        @media (max-width: 1024px) { .about-grid, .contact-grid { grid-template-columns: 1fr; gap: 4rem; } .services-grid { grid-template-columns: repeat(2, 1fr); } .about-stats { grid-template-columns: repeat(2, 1fr); } }
+        @media (max-width: 1200px) { 
+            .process-grid { grid-template-columns: repeat(2, 1fr); } 
+            .instagram-grid { grid-template-columns: repeat(4, 1fr); }
+        }
+        @media (max-width: 1024px) { 
+            .about-grid, .contact-grid { grid-template-columns: 1fr; gap: 4rem; } 
+            .services-grid { grid-template-columns: repeat(2, 1fr); } 
+            .about-stats { grid-template-columns: repeat(2, 1fr); }
+            .instagram-grid { grid-template-columns: repeat(3, 1fr); }
+        }
         @media (max-width: 768px) {
             .mobile-menu-btn { display: block; }
             .nav-links { display: none; position: fixed; top: 0; right: 0; width: 80%; height: 100vh; background: var(--surface-color); flex-direction: column; justify-content: center; align-items: center; gap: 2rem; z-index: 1000; }
@@ -312,6 +488,12 @@
             .services-grid, .portfolio-grid, .process-grid { grid-template-columns: 1fr; }
             .process-step { min-height: auto; }
             .about-features, .about-stats, .form-row { grid-template-columns: 1fr; }
+            .instagram-grid { grid-template-columns: repeat(2, 1fr); }
+            .instagram-profile { flex-direction: column; text-align: center; }
+            .instagram-info p { margin: 0 auto; }
+        }
+        @media (max-width: 480px) {
+            .instagram-grid { grid-template-columns: 1fr; }
         }
     </style>
 </head>
@@ -326,14 +508,15 @@
     <!-- Navigation -->
     <nav id="navbar">
         <a href="#" class="logo">UFA <span style="font-size:0.5em;display:block;">FILM</span></a>
-        <ul class="nav-links">
+        <ul class="nav-links" id="navLinks">
             <li><a href="#about" class="nav-link">A Produtora</a></li>
             <li><a href="#services" class="nav-link">Serviços</a></li>
             <li><a href="#process" class="nav-link">Processo</a></li>
             <li><a href="#portfolio" class="nav-link">Portfólio</a></li>
+            <li><a href="#instagram" class="nav-link">Instagram</a></li>
             <li><a href="#contact" class="nav-link">Contato</a></li>
         </ul>
-        <button class="mobile-menu-btn" onclick="toggleMobileMenu()"><i class="fas fa-bars"></i></button>
+        <button class="mobile-menu-btn" id="mobileMenuBtn"><i class="fas fa-bars"></i></button>
     </nav>
 
     <!-- Hero -->
@@ -364,8 +547,8 @@
                 <div class="about-image"><img id="img-about" src="https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?w=800" alt="Estúdio"></div>
                 <div class="about-content">
                     <h3>Excelência em Cada Frame</h3>
-                    <p>A UFA FILM nasceu da paixão pelo cinema. Somos uma equipe dedicada a transformar ideias em obras audiovisuais.</p>
-                    <p>Utilizamos equipamentos 6K com Open Gate para máxima qualidade e flexibilidade criativa.</p>
+                    <p>A UFA FILM nasceu da paixão pelo cinema. Somos uma equipe dedicada a transformar ideias em obras audiovisuais que transcendem expectativas, criando conexões emocionais entre marcas e seu público através de imagens de alto impacto visual.</p>
+                    <p>Utilizamos equipamentos de última geração com captura em 6K Open Gate para máxima qualidade e flexibilidade criativa, garantindo que cada projeto alcance o padrão cinematográfico que nossos clientes merecem.</p>
                     <div class="about-features">
                         <div class="about-feature"><i class="fas fa-check-circle"></i><span>Produção completa in-house</span></div>
                         <div class="about-feature"><i class="fas fa-check-circle"></i><span>Equipamentos cinema-grade 6K</span></div>
@@ -389,14 +572,14 @@
             <span class="section-label">Nossos Serviços</span>
             <h2 class="section-title">Soluções Audiovisuais</h2>
         </div>
-        <div class="services-intro">Na UFA FILM, criamos experiências visuais completas. Cada serviço maximiza o impacto da sua marca com tecnologia de ponta.</div>
+        <div class="services-intro">Na UFA FILM, criamos experiências visuais completas. Cada serviço é desenvolvido para maximizar o impacto da sua marca com tecnologia de ponta e criatividade sem limites.</div>
         <div class="services-grid">
             <div class="service-card">
                 <div class="service-image"><img id="img-serv-1" src="https://images.unsplash.com/photo-1574717024653-61fd2cf4d44c?w=600" alt="Comerciais"></div>
                 <div class="service-content">
                     <i class="fas fa-video service-icon"></i>
                     <h3>Comerciais e Publicidade</h3>
-                    <p>Filmes publicitários de alto impacto para TV, digital e cinema.</p>
+                    <p>Filmes publicitários de alto impacto para TV, digital e cinema. Criamos narrativas visuais que convertem e engajam audiências.</p>
                     <ul class="service-list">
                         <li><i class="fas fa-caret-right"></i> Produção 4K/6K</li>
                         <li><i class="fas fa-caret-right"></i> Roteiro criativo</li>
@@ -409,7 +592,7 @@
                 <div class="service-content">
                     <i class="fas fa-helicopter service-icon"></i>
                     <h3>Imagens Aéreas</h3>
-                    <p>Capturas aéreas cinematográficas com perspectivas únicas.</p>
+                    <p>Capturas aéreas cinematográficas com perspectivas únicas que elevam a produção visual a outro patamar de grandiosidade.</p>
                     <ul class="service-list">
                         <li><i class="fas fa-caret-right"></i> Drones profissionais 4K</li>
                         <li><i class="fas fa-caret-right"></i> Pilotos certificados</li>
@@ -422,7 +605,7 @@
                 <div class="service-content">
                     <i class="fas fa-film service-icon"></i>
                     <h3>Cobertura de Eventos</h3>
-                    <p>Documentação audiovisual completa com qualidade cinematográfica.</p>
+                    <p>Documentação audiovisual completa com qualidade cinematográfica. Preservamos momentos especiais com arte e técnica.</p>
                     <ul class="service-list">
                         <li><i class="fas fa-caret-right"></i> Equipamento broadcast</li>
                         <li><i class="fas fa-caret-right"></i> Entrega em tempo real</li>
@@ -435,7 +618,7 @@
                 <div class="service-content">
                     <i class="fas fa-camera service-icon"></i>
                     <h3>Fashion Films</h3>
-                    <p>Filmes de moda sofisticados para marcas e designers.</p>
+                    <p>Filmes de moda sofisticados para marcas e designers que buscam expressar identidade e estilo através do audiovisual.</p>
                     <ul class="service-list">
                         <li><i class="fas fa-caret-right"></i> Direção de arte</li>
                         <li><i class="fas fa-caret-right"></i> Styling e cenografia</li>
@@ -448,7 +631,7 @@
                 <div class="service-content">
                     <i class="fas fa-utensils service-icon"></i>
                     <h3>Vídeos Gastronômicos</h3>
-                    <p>Food films que despertam sentidos através da culinária.</p>
+                    <p>Food films que despertam sentidos através da culinária. Cada prato vira uma obra de arte audiovisual irresistível.</p>
                     <ul class="service-list">
                         <li><i class="fas fa-caret-right"></i> Food styling</li>
                         <li><i class="fas fa-caret-right"></i> Iluminação especializada</li>
@@ -461,7 +644,7 @@
                 <div class="service-content">
                     <i class="fas fa-sparkles service-icon"></i>
                     <h3>Beleza e Cosméticos</h3>
-                    <p>Filmes para a indústria da beleza com conexão emocional.</p>
+                    <p>Filmes para a indústria da beleza com conexão emocional. Destacamos a essência de cada produto e marca.</p>
                     <ul class="service-list">
                         <li><i class="fas fa-caret-right"></i> Macro cinematográfico</li>
                         <li><i class="fas fa-caret-right"></i> High-speed filming</li>
@@ -480,24 +663,24 @@
         </div>
         <div class="process-intro">
             <h3>Nossa Metodologia</h3>
-            <p>Um processo estruturado em 4 etapas para garantir excelência em cada projeto.</p>
+            <p>Um processo estruturado em 4 etapas para garantir excelência e transparência em cada projeto desenvolvido.</p>
         </div>
         <div class="process-grid">
             <div class="process-step" data-step="01">
                 <h3>Descoberta</h3>
-                <p><strong>O início de tudo.</strong> Reunião de alinhamento para entender a visão do cliente, objetivos e público-alvo. Análise de concorrência e definição do tom visual.</p>
+                <p><strong>O início de tudo.</strong> Reunião de alinhamento para entender a visão do cliente, objetivos e público-alvo. Análise de concorrência e definição do tom visual que melhor comunica sua mensagem.</p>
             </div>
             <div class="process-step" data-step="02">
                 <h3>Pré-Produção</h3>
-                <p><strong>Planejamento minucioso.</strong> Desenvolvimento de roteiro, storyboard, casting e logística. Seleção de equipamentos cinema-grade para qualidade 6K.</p>
+                <p><strong>Planejamento minucioso.</strong> Desenvolvimento de roteiro, storyboard detalhado, casting e logística completa. Seleção de equipamentos cinema-grade para qualidade 6K impecável.</p>
             </div>
             <div class="process-step" data-step="03">
                 <h3>Produção</h3>
-                <p><strong>A magia acontece.</strong> Gravação com câmeras Open Gate, áudio profissional e direção de cena para cada take com precisão emocional.</p>
+                <p><strong>A magia acontece.</strong> Gravação com câmeras Open Gate, áudio profissional e direção de cena. Cada take é executado com precisão técnica e sensibilidade artística.</p>
             </div>
             <div class="process-step" data-step="04">
                 <h3>Pós-Produção</h3>
-                <p><strong>A obra ganha vida.</strong> Edição dinâmica, motion graphics e Color Grading profissional. Masterização e entrega em 4K/6K.</p>
+                <p><strong>A obra ganha vida.</strong> Edição dinâmica, motion graphics e Color Grading profissional cinematográfico. Masterização e entrega final em 4K/6K.</p>
             </div>
         </div>
     </section>
@@ -509,12 +692,51 @@
             <h2 class="section-title">Trabalhos Selecionados</h2>
         </div>
         <div class="portfolio-filters">
-            <button class="filter-btn active" onclick="filterPortfolio('all')">Todos</button>
-            <button class="filter-btn" onclick="filterPortfolio('comercial')">Comerciais</button>
-            <button class="filter-btn" onclick="filterPortfolio('drone')">Drone</button>
-            <button class="filter-btn" onclick="filterPortfolio('evento')">Eventos</button>
+            <button class="filter-btn active" data-filter="all">Todos</button>
+            <button class="filter-btn" data-filter="comercial">Comerciais</button>
+            <button class="filter-btn" data-filter="drone">Drone</button>
+            <button class="filter-btn" data-filter="evento">Eventos</button>
+            <button class="filter-btn" data-filter="fashion">Fashion</button>
+            <button class="filter-btn" data-filter="gastronomia">Gastronomia</button>
+            <button class="filter-btn" data-filter="beleza">Beleza</button>
         </div>
         <div class="portfolio-grid" id="portfolioGrid"></div>
+    </section>
+
+    <!-- Instagram Section -->
+    <section class="instagram-section" id="instagram">
+        <div class="instagram-header">
+            <span class="section-label">
+                <i class="fab fa-instagram"></i>
+                Siga-nos no Instagram
+            </span>
+            <h2 class="section-title">@ufa.film</h2>
+        </div>
+        
+        <div class="instagram-profile">
+            <div class="instagram-avatar">
+                <i class="fas fa-film"></i>
+            </div>
+            <div class="instagram-info">
+                <h3>UFA FILM</h3>
+                <div class="handle">@ufa.film</div>
+                <p>Produção audiovisual de alto padrão. Transformando visões em experiências cinematográficas inesquecíveis.</p>
+                <a href="https://www.instagram.com/ufa.film/" target="_blank" class="instagram-follow-btn">
+                    <i class="fab fa-instagram"></i>
+                    Seguir no Instagram
+                </a>
+            </div>
+        </div>
+
+        <div class="instagram-grid" id="instagramGrid"></div>
+
+        <div class="instagram-cta">
+            <p>Acompanhe nosso trabalho diário e bastidores exclusivos</p>
+            <a href="https://www.instagram.com/ufa.film/" target="_blank" class="instagram-follow-btn">
+                <i class="fab fa-instagram"></i>
+                Ver Perfil Completo
+            </a>
+        </div>
     </section>
 
     <!-- Contact -->
@@ -526,18 +748,28 @@
         <div class="contact-grid">
             <div class="contact-info">
                 <h3>Fale Conosco</h3>
-                <p>Estamos prontos para ouvir sobre seu projeto audiovisual.</p>
+                <p>Estamos prontos para ouvir sobre seu projeto audiovisual e transformar suas ideias em realidade cinematográfica.</p>
                 <div class="contact-details">
-                    <div class="contact-item"><i class="fab fa-whatsapp"></i><div><strong>WhatsApp</strong><span>(62) 98433-2509</span></div></div>
-                    <div class="contact-item"><i class="fas fa-envelope"></i><div><strong>E-mail</strong><span>eclatnoble1@gmail.com</span></div></div>
-                    <div class="contact-item"><i class="fab fa-instagram"></i><div><strong>Instagram</strong><span>@ufa.film</span></div></div>
+                    <a href="https://wa.me/5562984332509" target="_blank" class="contact-item">
+                        <i class="fab fa-whatsapp"></i>
+                        <div><strong>WhatsApp</strong><span>(62) 98433-2509</span></div>
+                    </a>
+                    <a href="mailto:eclatnoble1@gmail.com" class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <div><strong>E-mail</strong><span>eclatnoble1@gmail.com</span></div>
+                    </a>
+                    <a href="https://www.instagram.com/ufa.film/" target="_blank" class="contact-item">
+                        <i class="fab fa-instagram"></i>
+                        <div><strong>Instagram</strong><span>@ufa.film</span></div>
+                    </a>
                 </div>
             </div>
             <div class="contact-form">
-                <form onsubmit="handleContactSubmit(event)">
-                    <div class="form-group"><input type="text" class="form-control" placeholder="Seu Nome" required></div>
-                    <div class="form-group"><input type="email" class="form-control" placeholder="Seu E-mail" required></div>
-                    <div class="form-group"><textarea class="form-control" placeholder="Conte-nos sobre seu projeto..." required></textarea></div>
+                <form id="contactForm">
+                    <div class="form-group"><input type="text" class="form-control" name="name" placeholder="Seu Nome" required></div>
+                    <div class="form-group"><input type="email" class="form-control" name="email" placeholder="Seu E-mail" required></div>
+                    <div class="form-group"><input type="tel" class="form-control" name="phone" placeholder="Seu Telefone"></div>
+                    <div class="form-group"><textarea class="form-control" name="message" placeholder="Conte-nos sobre seu projeto..." required></textarea></div>
                     <button type="submit" class="form-submit">Enviar Mensagem</button>
                 </form>
             </div>
@@ -545,17 +777,17 @@
     </section>
 
     <!-- Briefing -->
-    <section class="briefing" id="questionnaire">
+    <section class="briefing" id="briefing">
         <div class="briefing-container">
             <h3>Briefing Completo</h3>
-            <p>Preencha o formulário para nos ajudar a entender suas necessidades.</p>
-            <form onsubmit="handleBriefingSubmit(event)">
+            <p>Preencha o formulário para nos ajudar a entender suas necessidades e criar o projeto perfeito para você.</p>
+            <form id="briefingForm">
                 <div class="form-row">
-                    <div class="form-group"><input type="text" class="form-control" placeholder="Nome / Empresa" required></div>
-                    <div class="form-group"><input type="email" class="form-control" placeholder="E-mail" required></div>
+                    <div class="form-group"><input type="text" class="form-control" name="name" placeholder="Nome / Empresa" required></div>
+                    <div class="form-group"><input type="email" class="form-control" name="email" placeholder="E-mail" required></div>
                 </div>
                 <div class="form-group">
-                    <select class="form-select" required>
+                    <select class="form-select" name="projectType" required>
                         <option value="" disabled selected>Tipo de Projeto</option>
                         <option value="comercial">Comercial</option>
                         <option value="drone">Drone</option>
@@ -565,7 +797,16 @@
                         <option value="beleza">Beleza</option>
                     </select>
                 </div>
-                <div class="form-group"><textarea class="form-control" placeholder="Descreva seu projeto..." rows="4" required></textarea></div>
+                <div class="form-group">
+                    <select class="form-select" name="budget">
+                        <option value="" disabled selected>Orçamento Estimado</option>
+                        <option value="ate-5k">Até R$ 5.000</option>
+                        <option value="5k-15k">R$ 5.000 - R$ 15.000</option>
+                        <option value="15k-30k">R$ 15.000 - R$ 30.000</option>
+                        <option value="acima-30k">Acima de R$ 30.000</option>
+                    </select>
+                </div>
+                <div class="form-group"><textarea class="form-control" name="description" placeholder="Descreva seu projeto com detalhes..." rows="5" required></textarea></div>
                 <button type="submit" class="form-submit">Enviar Briefing</button>
             </form>
         </div>
@@ -578,6 +819,7 @@
         <div class="footer-social">
             <a href="https://www.instagram.com/ufa.film/" target="_blank" class="social-icon"><i class="fab fa-instagram"></i></a>
             <a href="https://wa.me/5562984332509" target="_blank" class="social-icon"><i class="fab fa-whatsapp"></i></a>
+            <a href="mailto:eclatnoble1@gmail.com" class="social-icon"><i class="fas fa-envelope"></i></a>
         </div>
         <div class="footer-bottom"><p>&copy; 2024 UFA FILM. Todos os direitos reservados.</p></div>
     </footer>
@@ -591,25 +833,27 @@
         // ============================================
         // CONFIGURAÇÃO - ALTERE PARA SUA URL DO GITHUB
         // ============================================
-        const DATA_URL = 'data.json'; // Relativo (mesma pasta)
-        // Para GitHub Pages, use: 'https://seuusuario.github.io/seurepo/data.json'
+        const DATA_URL = 'data.json';
         
         // Portfolio Data
         let portfolioData = [];
+        let instagramData = [];
 
         // Load Data from JSON
         async function loadSiteData() {
             try {
-                const response = await fetch(DATA_URL);
+                const response = await fetch(DATA_URL + '?t=' + Date.now());
                 if (!response.ok) throw new Error('Erro ao carregar dados');
                 const data = await response.json();
                 
-                // Load portfolio
                 if (data.portfolio && data.portfolio.length > 0) {
                     portfolioData = data.portfolio;
                 }
                 
-                // Load site images
+                if (data.instagram && data.instagram.length > 0) {
+                    instagramData = data.instagram;
+                }
+                
                 if (data.siteImages) {
                     for (const [id, url] of Object.entries(data.siteImages)) {
                         const el = document.getElementById(id);
@@ -618,19 +862,16 @@
                 }
                 
                 renderPortfolio();
+                renderInstagram();
             } catch (error) {
                 console.log('Usando dados padrão:', error);
-                // Fallback para localStorage se JSON falhar
                 loadFromLocalStorage();
             }
         }
 
-        // Fallback: Load from localStorage (para uso local/admin)
         function loadFromLocalStorage() {
             const saved = localStorage.getItem('ufaPortfolio');
-            if (saved) { 
-                try { portfolioData = JSON.parse(saved); } catch(e) {} 
-            }
+            if (saved) { try { portfolioData = JSON.parse(saved); } catch(e) {} }
             const savedImages = localStorage.getItem('ufaSiteImages');
             if (savedImages) {
                 const images = JSON.parse(savedImages);
@@ -639,12 +880,18 @@
                     if (el) el.src = url;
                 }
             }
+            const savedInstagram = localStorage.getItem('ufaInstagram');
+            if (savedInstagram) { try { instagramData = JSON.parse(savedInstagram); } catch(e) {} }
             renderPortfolio();
+            renderInstagram();
         }
 
         // Preloader Animation
         window.addEventListener('load', () => {
             loadSiteData();
+            initNavigation();
+            initForms();
+            initFilters();
             
             const tl = gsap.timeline();
             tl.to('.preloader-text', { opacity: 1, y: 0, duration: 0.6 })
@@ -662,20 +909,45 @@
         });
 
         // Navigation
-        window.addEventListener('scroll', () => {
-            document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 100);
-        });
-        function toggleMobileMenu() {
-            document.querySelector('.nav-links').classList.toggle('active');
+        function initNavigation() {
+            window.addEventListener('scroll', () => {
+                document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 100);
+            });
+            
+            document.getElementById('mobileMenuBtn').addEventListener('click', () => {
+                document.getElementById('navLinks').classList.toggle('active');
+            });
+            
+            document.querySelectorAll('.nav-link').forEach(link => {
+                link.addEventListener('click', () => {
+                    document.getElementById('navLinks').classList.remove('active');
+                });
+            });
+            
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    }
+                });
+            });
         }
 
         // Portfolio
         function renderPortfolio(filter = 'all') {
             const grid = document.getElementById('portfolioGrid');
             const filtered = filter === 'all' ? portfolioData : portfolioData.filter(p => p.category === filter);
+            
+            if (filtered.length === 0) {
+                grid.innerHTML = '<div style="grid-column: 1/-1; text-align: center; padding: 3rem; color: var(--text-gray);">Nenhum projeto encontrado.</div>';
+                return;
+            }
+            
             grid.innerHTML = filtered.map(item => `
-                <div class="portfolio-item" onclick="openVideo('${item.video || '#'}')">
-                    <img src="${item.image}" alt="${item.title}">
+                <div class="portfolio-item" onclick="openVideo('${item.video || '#'}')" data-category="${item.category}">
+                    <img src="${item.image}" alt="${item.title}" onerror="this.src='https://images.unsplash.com/photo-1574717024653-61fd2cf4d44c?w=600'">
                     <div class="portfolio-play"><i class="fas fa-play"></i></div>
                     <div class="portfolio-overlay">
                         <span class="portfolio-category">${item.category}</span>
@@ -689,35 +961,67 @@
             `).join('');
         }
         
-        function openVideo(url) {
-            if (url && url !== '#') {
-                window.open(url, '_blank');
-            }
+        function initFilters() {
+            document.querySelectorAll('.filter-btn').forEach(btn => {
+                btn.addEventListener('click', function() {
+                    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+                    this.classList.add('active');
+                    renderPortfolio(this.dataset.filter);
+                });
+            });
         }
         
-        function filterPortfolio(category) {
-            document.querySelectorAll('.filter-btn').forEach(btn => btn.classList.remove('active'));
-            event.target.classList.add('active');
-            renderPortfolio(category);
+        function openVideo(url) {
+            if (!url || url === '#') return;
+            window.open(url, '_blank');
+        }
+
+        // Instagram
+        function renderInstagram() {
+            const grid = document.getElementById('instagramGrid');
+            
+            if (instagramData.length === 0) {
+                grid.innerHTML = `<a href="https://www.instagram.com/ufa.film/" target="_blank" class="instagram-item">
+                    <img src="https://images.unsplash.com/photo-1536240478700-b869070f9279?w=400" alt="Instagram">
+                    <div class="instagram-item-overlay"><span><i class="fab fa-instagram"></i></span></div>
+                </a>`.repeat(6);
+                return;
+            }
+            
+            grid.innerHTML = instagramData.map(item => `
+                <a href="${item.url || '#'}" target="_blank" class="instagram-item ${item.type === 'video' ? 'type-video' : ''}">
+                    <img src="${item.image}" alt="${item.title || 'Instagram'}" onerror="this.src='https://images.unsplash.com/photo-1536240478700-b869070f9279?w=400'">
+                    <div class="instagram-item-overlay">
+                        <span><i class="fas fa-heart"></i> ${item.likes || ''}</span>
+                        ${item.type === 'video' ? '<span><i class="fas fa-play"></i></span>' : ''}
+                    </div>
+                </a>
+            `).join('');
         }
 
         // Forms
-        function handleContactSubmit(e) {
-            e.preventDefault();
-            showToast('Mensagem enviada com sucesso!');
-            e.target.reset();
+        function initForms() {
+            document.getElementById('contactForm').addEventListener('submit', function(e) {
+                e.preventDefault();
+                showToast('Mensagem enviada com sucesso! Entraremos em contato em breve.');
+                this.reset();
+            });
+            
+            document.getElementById('briefingForm').addEventListener('submit', function(e) {
+                e.preventDefault();
+                showToast('Briefing enviado! Analisaremos seu projeto e retornaremos em breve.');
+                this.reset();
+            });
         }
-        function handleBriefingSubmit(e) {
-            e.preventDefault();
-            showToast('Briefing enviado! Entraremos em contato.');
-            e.target.reset();
-        }
+        
         function showToast(msg) {
             const toast = document.getElementById('toast');
             document.getElementById('toastMsg').textContent = msg;
             toast.classList.add('show');
-            setTimeout(() => toast.classList.remove('show'), 3500);
+            setTimeout(() => toast.classList.remove('show'), 4000);
         }
+        
+        window.openVideo = openVideo;
     </script>
 </body>
 </html>
