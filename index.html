@@ -59,6 +59,9 @@
             background: linear-gradient(90deg, #ffffff, var(--secondary-color));
             -webkit-background-clip: text; -webkit-text-fill-color: transparent;
             letter-spacing: 0.3em; opacity: 0; transform: scale(0.8);
+            text-align: center;
+            width: 100%;
+            padding: 0 1rem;
         }
         .preloader-bar { width: 250px; height: 3px; background: var(--glass-border); overflow: hidden; border-radius: 2px; }
         .preloader-progress { width: 0%; height: 100%; background: linear-gradient(90deg, var(--secondary-color), var(--primary-color)); }
@@ -230,17 +233,49 @@
         }
         .filter-btn:hover, .filter-btn.active { border-color: var(--primary-color); color: var(--primary-color); background: var(--glass-border); }
         .portfolio-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 2rem; max-width: 1400px; margin: 0 auto; }
-        .portfolio-item { position: relative; aspect-ratio: 1/1; overflow: hidden; cursor: pointer; border: 1px solid transparent; transition: all 0.4s ease; background: var(--surface-color); }
+        .portfolio-item { 
+            position: relative; aspect-ratio: 1/1; overflow: hidden; cursor: pointer; 
+            border: 1px solid transparent; transition: all 0.4s ease; background: var(--surface-color); 
+        }
         .portfolio-item:hover { border-color: var(--secondary-color); transform: translateY(-5px); }
         .portfolio-item img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.8s ease; filter: grayscale(40%); }
         .portfolio-item:hover img { transform: scale(1.1); filter: grayscale(0%); }
+        
+        /* Play button with glowing circle animation */
         .portfolio-play {
-            position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%) scale(0.8);
-            width: 70px; height: 70px; border: 2px solid var(--secondary-color); border-radius: 50%;
+            position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
+            width: 70px; height: 70px; border-radius: 50%;
             display: flex; align-items: center; justify-content: center; color: var(--secondary-color);
-            font-size: 1.5rem; opacity: 0; transition: all 0.4s ease; background: rgba(0,0,0,0.6); backdrop-filter: blur(5px); z-index: 10;
+            font-size: 1.5rem; background: rgba(0,0,0,0.6); backdrop-filter: blur(5px); z-index: 10;
+            opacity: 0; transition: all 0.4s ease;
         }
         .portfolio-item:hover .portfolio-play { opacity: 1; transform: translate(-50%, -50%) scale(1); }
+        
+        /* Glowing circle animation */
+        .portfolio-play::before {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            border: 2px solid transparent;
+            border-top-color: var(--primary-color);
+            border-right-color: var(--secondary-color);
+            animation: none;
+        }
+        
+        .portfolio-play::after {
+            content: '';
+            position: absolute;
+            width: calc(100% + 10px);
+            height: calc(100% + 10px);
+            border-radius: 50%;
+            border: 1px solid transparent;
+            border-bottom-color: var(--secondary-color);
+            border-left-color: var(--primary-color);
+            animation: none;
+        }
+        
         .portfolio-overlay {
             position: absolute; bottom: 0; left: 0; width: 100%; padding: 2rem;
             background: linear-gradient(to top, rgba(0,0,0,0.95) 0%, transparent 100%);
@@ -249,6 +284,38 @@
         .portfolio-item:hover .portfolio-overlay { transform: translateY(0); opacity: 1; }
         .portfolio-category { font-size: 0.7rem; color: var(--secondary-color); text-transform: uppercase; letter-spacing: 0.15em; display: block; margin-bottom: 0.5rem; }
         .portfolio-title { font-size: 1.2rem; margin-bottom: 0.5rem; line-height: 1.2; }
+
+        /* Mobile Portfolio - Always show info with animated play */
+        @media (max-width: 768px) {
+            .portfolio-play {
+                opacity: 1;
+                transform: translate(-50%, -50%) scale(0.9);
+            }
+            .portfolio-play::before {
+                animation: rotateGlow 2s linear infinite;
+            }
+            .portfolio-play::after {
+                animation: rotateGlowReverse 2.5s linear infinite;
+            }
+            .portfolio-overlay {
+                transform: translateY(0);
+                opacity: 1;
+                padding: 1.5rem;
+            }
+            .portfolio-item img {
+                filter: grayscale(0%);
+            }
+        }
+        
+        @keyframes rotateGlow {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        @keyframes rotateGlowReverse {
+            0% { transform: rotate(360deg); }
+            100% { transform: rotate(0deg); }
+        }
 
         /* Instagram Section */
         .instagram-section {
@@ -386,9 +453,11 @@
             .instagram-profile { flex-direction: column; text-align: center; }
             .instagram-info p { margin: 0 auto; }
             .filter-btn { padding: 0.6rem 1rem; font-size: 0.6rem; }
+            .preloader-logo { font-size: 2.5rem; letter-spacing: 0.2em; }
         }
         @media (max-width: 480px) {
             .instagram-grid { grid-template-columns: 1fr; }
+            .preloader-logo { font-size: 2rem; letter-spacing: 0.15em; }
         }
     </style>
 </head>
@@ -416,7 +485,7 @@
 
     <!-- Hero -->
     <section class="hero" id="hero">
-        <div class="hero-bg"><img id="img-hero" src="https://images.unsplash.com/photo-1536240478700-b869070f9279?w=1200" alt="UFA FILM"></div>
+        <div class="hero-bg"><img id="img-hero" src="https://images.unsplash.com/photo-1536240478700-b869070f9279?w=1200&q=80" alt="UFA FILM"></div>
         <div class="hero-overlay"></div>
         <div class="hero-content">
             <p class="hero-subtitle">Produção Audiovisual de Alto Padrão</p>
@@ -439,7 +508,7 @@
                 <h2 class="section-title">Quem Somos</h2>
             </div>
             <div class="about-grid">
-                <div class="about-image"><img id="img-about" src="https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?w=800" alt="Estúdio"></div>
+                <div class="about-image"><img id="img-about" src="https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?w=800&q=80" alt="Estúdio"></div>
                 <div class="about-content">
                     <h3>Excelência em Cada Frame</h3>
                     <p>A UFA FILM nasceu da paixão pelo cinema. Somos uma equipe dedicada a transformar ideias em obras audiovisuais que transcendem expectativas, criando conexões emocionais entre marcas e seu público através de imagens de alto impacto visual.</p>
@@ -470,7 +539,7 @@
         <div class="services-intro">Na UFA FILM, criamos experiências visuais completas. Cada serviço é desenvolvido para maximizar o impacto da sua marca com tecnologia de ponta e criatividade sem limites.</div>
         <div class="services-grid">
             <div class="service-card">
-                <div class="service-image"><img id="img-serv-1" src="https://images.unsplash.com/photo-1574717024653-61fd2cf4d44c?w=600" alt="Comerciais"></div>
+                <div class="service-image"><img id="img-serv-1" src="https://images.unsplash.com/photo-1574717024653-61fd2cf4d44c?w=600&q=80" alt="Comerciais"></div>
                 <div class="service-content">
                     <i class="fas fa-video service-icon"></i>
                     <h3>Comerciais e Publicidade</h3>
@@ -483,7 +552,7 @@
                 </div>
             </div>
             <div class="service-card">
-                <div class="service-image"><img id="img-serv-2" src="https://images.unsplash.com/photo-1506947411487-a56738267384?w=600" alt="Drone"></div>
+                <div class="service-image"><img id="img-serv-2" src="https://images.unsplash.com/photo-1506947411487-a56738267384?w=600&q=80" alt="Drone"></div>
                 <div class="service-content">
                     <i class="fas fa-helicopter service-icon"></i>
                     <h3>Imagens Aéreas</h3>
@@ -496,7 +565,7 @@
                 </div>
             </div>
             <div class="service-card">
-                <div class="service-image"><img id="img-serv-3" src="https://images.unsplash.com/photo-1517457373958-b7bdd4587205?w=600" alt="Eventos"></div>
+                <div class="service-image"><img id="img-serv-3" src="https://images.unsplash.com/photo-1517457373958-b7bdd4587205?w=600&q=80" alt="Eventos"></div>
                 <div class="service-content">
                     <i class="fas fa-film service-icon"></i>
                     <h3>Cobertura de Eventos</h3>
@@ -509,7 +578,7 @@
                 </div>
             </div>
             <div class="service-card">
-                <div class="service-image"><img id="img-serv-4" src="https://images.unsplash.com/photo-1558171813-4c088753af8f?w=600" alt="Fashion"></div>
+                <div class="service-image"><img id="img-serv-4" src="https://images.unsplash.com/photo-1558171813-4c088753af8f?w=600&q=80" alt="Fashion"></div>
                 <div class="service-content">
                     <i class="fas fa-camera service-icon"></i>
                     <h3>Fashion Films</h3>
@@ -522,7 +591,7 @@
                 </div>
             </div>
             <div class="service-card">
-                <div class="service-image"><img id="img-serv-5" src="https://images.unsplash.com/photo-1551218808-94e220e084d2?w=600" alt="Gastronomia"></div>
+                <div class="service-image"><img id="img-serv-5" src="https://images.unsplash.com/photo-1551218808-94e220e084d2?w=600&q=80" alt="Gastronomia"></div>
                 <div class="service-content">
                     <i class="fas fa-utensils service-icon"></i>
                     <h3>Vídeos Gastronômicos</h3>
@@ -535,7 +604,7 @@
                 </div>
             </div>
             <div class="service-card">
-                <div class="service-image"><img id="img-serv-6" src="https://images.unsplash.com/photo-1596462502278-27bfdd403348?w=600" alt="Beleza"></div>
+                <div class="service-image"><img id="img-serv-6" src="https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?w=600&q=80" alt="Beleza"></div>
                 <div class="service-content">
                     <i class="fas fa-sparkles service-icon"></i>
                     <h3>Beleza e Cosméticos</h3>
@@ -816,7 +885,7 @@
             
             grid.innerHTML = filtered.map(item => `
                 <div class="portfolio-item" onclick="openVideo('${item.video}')" data-category="${item.category}">
-                    <img src="${item.image}" alt="${item.title}" onerror="this.src='https://images.unsplash.com/photo-1536240478700-b869070f9279?w=600'">
+                    <img src="${item.image}" alt="${item.title}" onerror="this.src='https://images.unsplash.com/photo-1536240478700-b869070f9279?w=600&q=80'">
                     <div class="portfolio-play"><i class="fas fa-play"></i></div>
                     <div class="portfolio-overlay">
                         <span class="portfolio-category">${item.category}</span>
@@ -846,7 +915,7 @@
             
             if (instagramData.length === 0) {
                 grid.innerHTML = `<a href="https://www.instagram.com/ufa.film/" target="_blank" class="instagram-item">
-                    <img src="https://images.unsplash.com/photo-1536240478700-b869070f9279?w=400" alt="Instagram">
+                    <img src="https://images.unsplash.com/photo-1536240478700-b869070f9279?w=400&q=80" alt="Instagram">
                     <div class="instagram-item-overlay"><span><i class="fab fa-instagram"></i></span></div>
                 </a>`.repeat(6);
                 return;
@@ -854,7 +923,7 @@
             
             grid.innerHTML = instagramData.map(item => `
                 <a href="${item.url}" target="_blank" class="instagram-item type-video">
-                    <img src="${item.image}" alt="Instagram" onerror="this.src='https://images.unsplash.com/photo-1536240478700-b869070f9279?w=400'">
+                    <img src="${item.image}" alt="Instagram" onerror="this.src='https://images.unsplash.com/photo-1536240478700-b869070f9279?w=400&q=80'">
                     <div class="instagram-item-overlay">
                         <span><i class="fab fa-instagram"></i></span>
                     </div>
