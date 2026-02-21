@@ -735,7 +735,10 @@
                 </div>
             </div>
             <div class="contact-form">
-                <form id="contactForm">
+                <form id="contactForm" action="https://formsubmit.co/eclatnoble1@gmail.com" method="POST">
+                    <input type="hidden" name="_subject" value="Nova mensagem do site UFA FILM">
+                    <input type="hidden" name="_captcha" value="false">
+                    <input type="hidden" name="_template" value="table">
                     <div class="form-group"><input type="text" class="form-control" name="name" placeholder="Seu Nome" required></div>
                     <div class="form-group"><input type="email" class="form-control" name="email" placeholder="Seu E-mail" required></div>
                     <div class="form-group"><input type="tel" class="form-control" name="phone" placeholder="Seu Telefone"></div>
@@ -749,31 +752,43 @@
     <!-- Briefing -->
     <section class="briefing" id="briefing">
         <div class="briefing-container">
-            <h3>Briefing Completo</h3>
-            <p>Preencha o formulário para nos ajudar a entender suas necessidades.</p>
-            <form id="briefingForm">
+            <h3>Briefing do Projeto</h3>
+            <p>Preencha o formulário abaixo e envie sua solicitação inicial de projeto diretamente para nosso e-mail.</p>
+            <form id="briefingForm" action="https://formsubmit.co/eclatnoble1@gmail.com" method="POST">
+                <input type="hidden" name="_subject" value="Novo Briefing de Projeto - UFA FILM">
+                <input type="hidden" name="_captcha" value="false">
+                <input type="hidden" name="_template" value="table">
                 <div class="form-row">
-                    <div class="form-group"><input type="text" class="form-control" name="name" placeholder="Nome / Empresa" required></div>
+                    <div class="form-group"><input type="text" class="form-control" name="nome" placeholder="Nome / Empresa" required></div>
                     <div class="form-group"><input type="email" class="form-control" name="email" placeholder="E-mail" required></div>
                 </div>
                 <div class="form-group">
-                    <select class="form-select" name="projectType" required>
+                    <select class="form-select" name="tipoProjeto" required>
                         <option value="" disabled selected>Tipo de Projeto</option>
-                        <option value="comercial">Comercial</option>
-                        <option value="evento">Evento</option>
-                        <option value="gastronomia">Gastronomia</option>
-                        <option value="fitness">Fitness</option>
-                        <option value="moda">Moda</option>
-                        <option value="beleza">Beleza</option>
-                        <option value="esporte">Esporte</option>
-                        <option value="musical">Musical</option>
-                        <option value="documentario">Documentário</option>
-                        <option value="produto">Produto</option>
-                        <option value="lifestyle">Lifestyle</option>
-                        <option value="imobiliario">Imobiliário</option>
+                        <option value="Comercial">Comercial</option>
+                        <option value="Evento">Evento</option>
+                        <option value="Gastronomia">Gastronomia</option>
+                        <option value="Fitness">Fitness</option>
+                        <option value="Moda">Moda</option>
+                        <option value="Beleza">Beleza</option>
+                        <option value="Esporte">Esporte</option>
+                        <option value="Musical">Musical</option>
+                        <option value="Documentário">Documentário</option>
+                        <option value="Produto">Produto</option>
+                        <option value="Lifestyle">Lifestyle</option>
+                        <option value="Imobiliário">Imobiliário</option>
                     </select>
                 </div>
-                <div class="form-group"><textarea class="form-control" name="description" placeholder="Descreva seu projeto..." rows="5" required></textarea></div>
+                <div class="form-group">
+                    <input type="text" class="form-control" name="telefone" placeholder="Telefone / WhatsApp">
+                </div>
+                <div class="form-group">
+                    <input type="text" class="form-control" name="orcamento" placeholder="Orçamento Estimado (opcional)">
+                </div>
+                <div class="form-group">
+                    <input type="text" class="form-control" name="prazo" placeholder="Prazo Desejado (opcional)">
+                </div>
+                <div class="form-group"><textarea class="form-control" name="descricao" placeholder="Descreva seu projeto com detalhes: objetivo, público-alvo, referências visuais, localização, etc..." rows="6" required></textarea></div>
                 <button type="submit" class="form-submit">Enviar Briefing</button>
             </form>
         </div>
@@ -785,7 +800,6 @@
         <p class="footer-text">Produção audiovisual de alto padrão. Transformando visões em experiências cinematográficas.</p>
         <div class="footer-social">
             <a href="https://www.instagram.com/ufa.film/" target="_blank" class="social-icon"><i class="fab fa-instagram"></i></a>
-            <a href="https://wa.me/5562984332509" target="_blank" class="social-icon"><i class="fab fa-whatsapp"></i></a>
             <a href="mailto:eclatnoble1@gmail.com" class="social-icon"><i class="fas fa-envelope"></i></a>
         </div>
         <div class="footer-bottom"><p>&copy; 2024 UFA FILM. Todos os direitos reservados.</p></div>
@@ -832,7 +846,6 @@
         window.addEventListener('load', () => {
             loadSiteData();
             initNavigation();
-            initForms();
             initFilters();
             
             const tl = gsap.timeline();
@@ -929,27 +942,6 @@
                     </div>
                 </a>
             `).join('');
-        }
-
-        function initForms() {
-            document.getElementById('contactForm').addEventListener('submit', function(e) {
-                e.preventDefault();
-                showToast('Mensagem enviada com sucesso!');
-                this.reset();
-            });
-            
-            document.getElementById('briefingForm').addEventListener('submit', function(e) {
-                e.preventDefault();
-                showToast('Briefing enviado! Entraremos em contato.');
-                this.reset();
-            });
-        }
-        
-        function showToast(msg) {
-            const toast = document.getElementById('toast');
-            document.getElementById('toastMsg').textContent = msg;
-            toast.classList.add('show');
-            setTimeout(() => toast.classList.remove('show'), 4000);
         }
         
         window.openVideo = openVideo;
