@@ -234,6 +234,14 @@
                                 <option value="fashion">Fashion</option>
                                 <option value="gastronomia">Gastronomia</option>
                                 <option value="beleza">Beleza</option>
+                                <option value="fitness">Fitness</option>
+                                <option value="moda">Moda</option>
+                                <option value="esporte">Esporte</option>
+                                <option value="musical">Musical</option>
+                                <option value="documentario">Documentário</option>
+                                <option value="produto">Produto</option>
+                                <option value="lifestyle">Lifestyle</option>
+                                <option value="imobiliario">Imobiliário</option>
                             </select>
                         </div>
                     </div>
@@ -291,8 +299,8 @@
 
     <script>
         // ===== CREDENCIAIS =====
-        const ADMIN_USER = 'eduardoraul2000.er@gmail.com';
-        const ADMIN_PASS = 'Dolar2026';
+        const ADMIN_USER = 'eclatnoble1';
+        const ADMIN_PASS = '$Dolar2026';
 
         let portfolioData = [];
 
@@ -304,7 +312,7 @@
             'img-serv-3': { name: 'Serviço: Eventos', current: 'https://images.unsplash.com/photo-1517457373958-b7bdd4587205?w=600' },
             'img-serv-4': { name: 'Serviço: Fashion', current: 'https://images.unsplash.com/photo-1558171813-4c088753af8f?w=600' },
             'img-serv-5': { name: 'Serviço: Gastronomia', current: 'https://images.unsplash.com/photo-1551218808-94e220e084d2?w=600' },
-            'img-serv-6': { name: 'Serviço: Beleza', current: 'https://images.unsplash.com/photo-1596462502278-27bfdd403348?w=600' }
+            'img-serv-6': { name: 'Serviço: Beleza', current: 'https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?w=600' }
         };
 
         // ===== FUNÇÕES DE ARMAZENAMENTO =====
@@ -389,7 +397,7 @@
                     <img src="${item.image}" alt="${item.title}" onerror="this.src='https://via.placeholder.com/400x300?text=Imagem'">
                     <div class="portfolio-admin-info">
                         <h4>${item.title}</h4>
-                        <p><i class="fas fa-eye"></i> ${item.views || '0'} | <i class="fas fa-heart"></i> ${item.likes || '0'}</p>
+                        <p><i class="fas fa-tag"></i> ${item.category} | <i class="fas fa-eye"></i> ${item.views || '0'} | <i class="fas fa-heart"></i> ${item.likes || '0'}</p>
                         <div class="portfolio-admin-actions">
                             <button class="btn-small btn-edit" onclick="editVideo(${item.id})"><i class="fas fa-edit"></i></button>
                             <button class="btn-small btn-delete" onclick="deleteVideo(${item.id})"><i class="fas fa-trash"></i></button>
@@ -511,6 +519,11 @@
         function exportJSON() {
             const data = {
                 portfolio: portfolioData,
+                instagram: portfolioData.slice(0, 12).map(item => ({
+                    image: item.image,
+                    url: item.video || 'https://www.instagram.com/ufa.film/',
+                    type: 'video'
+                })),
                 siteImages: {}
             };
             for (let key in siteImagesConfig) {
