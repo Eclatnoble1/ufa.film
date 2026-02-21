@@ -10,7 +10,7 @@
     {
       "id": 2,
       "title": "@mfitgyn - Fitness",
-      "category": "fashion",
+      "category": "fitness",
       "image": "https://images.unsplash.com/photo-1518611012118-696072aa579a?w=600&fit=crop",
       "video": "https://www.instagram.com/reel/DUEQLA_lA6V/?igsh=b2hhZzBnYWNpenRk"
     },
@@ -231,7 +231,7 @@
     "img-serv-2": "https://images.unsplash.com/photo-1506947411487-a56738267384?w=600&fit=crop",
     "img-serv-3": "https://images.unsplash.com/photo-1517457373958-b7bdd4587205?w=600&fit=crop",
     "img-serv-4": "https://images.unsplash.com/photo-1558171813-4c088753af8f?w=600&fit=crop",
-    "img-serv-5": "https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=600&fit=crop",
+    "img-serv-5": "https://images.unsplash.com/photo-1551218808-94e220e084d2?w=600&fit=crop",
     "img-serv-6": "https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?w=600&fit=crop"
   }
 }
